@@ -2,8 +2,12 @@ extends Node2D
 
 class_name Snek
 
+signal moved
+signal eaten
+signal trapped
+
 @export var sprite_sheet: Texture = load("res://assets/snake-sprites.png")
-@export var sprite_sheet_size := Vector2i(6,0)
+@export var sprite_sheet_size := Vector2i(6, 1)
 
 @export var level: Level
 
@@ -17,32 +21,16 @@ var BLELELE := RSprite.new(Vector2i(1,0), "blelele")
 # locations of snake
 var coords: Array[Vector2i]
 
-var UP = Vector2i(0, -1)
-var DOWN = Vector2i(0, 1)
-var LEFT = Vector2i(-1, 0)
-var RIGHT = Vector2i(1, 0)
-
-
-func _ready() -> void:
-	coords.append(Vector2i(2, 2))
-	coords.append(Vector2i(3, 2))
-	coords.append(Vector2i(3, 3))
-	coords.append(Vector2i(3, 4))
-	coords.append(Vector2i(4, 4))
-	coords.append(Vector2i(4, 3))
-	coords.append(Vector2i(4, 2))
-	coords.append(Vector2i(5, 2))
-	update_sprites()
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("up"):
-		try_move_snake(UP)
+		try_move_snake(Globals.UP)
 	elif event.is_action_pressed("down"):
-		try_move_snake(DOWN)
+		try_move_snake(Globals.DOWN)
 	elif event.is_action_pressed("left"):
-		try_move_snake(LEFT)
+		try_move_snake(Globals.LEFT)
 	elif event.is_action_pressed("right"):
-		try_move_snake(RIGHT)
+		try_move_snake(Globals.RIGHT)
 	
 	if event.is_action_pressed("blelele"):
 		$Blelele.visible = not $Blelele.visible
@@ -60,10 +48,17 @@ func try_move_snake(direction: Vector2i) -> void:
 		# TODO check if tile is enterable!
 		
 		coords.push_front(target_cell)
-		coords.remove_at(coords.size() - 1)
+		
+		if level.is_cheeseboi(target_cell):
+			print("chomp")
+			level.remove_cheeseboi(target_cell)
+			eaten.emit()
+		else:
+			coords.remove_at(coords.size() - 1)
+			
 		assert(coords.size() >= 3)
 		update_sprites()
-		
+
 	else:
 		# TODO cannot move - play sound effect
 		pass
@@ -110,16 +105,16 @@ func get_tail_rotation(prev: Vector2i) -> int:
 
 func get_head_rotation(next: Vector2i) -> int:
 	match next:
-		UP: return 0
-		RIGHT: return 90
-		DOWN: return 180
-		LEFT: return 270
+		Globals.UP: return 0
+		Globals.RIGHT: return 90
+		Globals.DOWN: return 180
+		Globals.LEFT: return 270
 		
 	assert(false)
 	return 0
 
 # determine rotation of straight torso sprite, based on direction to previous and next tile
-func get_straight_torso_rotation(prev: Vector2i, next: Vector2i) -> int:
+func get_straight_torso_rotation(prev: Vector2i, _next: Vector2i) -> int:
 	if prev.x == 0:
 		return 0
 	else:
@@ -137,14 +132,14 @@ func get_corner_torso_rotation(prev: Vector2i, next: Vector2i) -> int:
 		x_axis = prev
 		y_axis = next
 		
-	if x_axis == LEFT:
-		if y_axis == UP:
+	if x_axis == Globals.LEFT:
+		if y_axis == Globals.UP:
 			return 90
 		else:
 			return 0
 			
 	else:
-		if y_axis == UP:
+		if y_axis == Globals.UP:
 			return 180
 		else:
 			return 270
