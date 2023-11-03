@@ -20,7 +20,6 @@ var BLELELE := RSprite.new(Vector2i(1,0), "blelele")
 
 # locations of snake
 var coords: Array[Vector2i]
-
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("up"):
@@ -42,7 +41,8 @@ func try_move_snake(direction: Vector2i) -> void:
 	assert(level)
 	if level.can_move_to(coords[0] + direction):
 		var target_cell = coords[0] + direction
-		if coords.find(target_cell) >= 0:
+		var idx = coords.find(target_cell)
+		if idx >= 0 and idx != coords.size() - 1:
 			# TODO - self-smash
 			return
 		# TODO check if tile is enterable!
