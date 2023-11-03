@@ -5,6 +5,8 @@ class_name Snek
 @export var sprite_sheet: Texture = load("res://assets/snake-sprites.png")
 @export var sprite_sheet_size := Vector2i(6,0)
 
+@export var level: Level
+
 # Snake parts
 var BODY_STRAIGHT := RSprite.new(Vector2i(0,0), "straight")
 var BODY_CORNER := RSprite.new(Vector2i(2, 0), "corner")
@@ -41,23 +43,30 @@ func _input(event: InputEvent) -> void:
 		try_move_snake(LEFT)
 	elif event.is_action_pressed("right"):
 		try_move_snake(RIGHT)
-	elif event.is_action_pressed("blelele"):
+	
+	if event.is_action_pressed("blelele"):
 		$Blelele.visible = not $Blelele.visible
 		pass # do something here
 	
 	
 func try_move_snake(direction: Vector2i) -> void:
 	assert(coords.size() >= 3)
-	var target_cell = coords[0] + direction
-	if coords.find(target_cell) >= 0:
-		# TODO - self-smash
-		return
-	# TODO check if tile is enterable!
-	
-	coords.push_front(target_cell)
-	coords.remove_at(coords.size() - 1)
-	assert(coords.size() >= 3)
-	update_sprites()
+	assert(level)
+	if level.can_move_to(coords[0] + direction):
+		var target_cell = coords[0] + direction
+		if coords.find(target_cell) >= 0:
+			# TODO - self-smash
+			return
+		# TODO check if tile is enterable!
+		
+		coords.push_front(target_cell)
+		coords.remove_at(coords.size() - 1)
+		assert(coords.size() >= 3)
+		update_sprites()
+		
+	else:
+		# TODO cannot move - play sound effect
+		pass
 	
 func update_sprites() -> void:
 	assert(coords.size() >= 3)
