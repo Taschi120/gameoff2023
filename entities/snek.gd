@@ -35,13 +35,14 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("up"):
 		try_move_snake(UP)
-	elif event.is_action("down"):
+	elif event.is_action_pressed("down"):
 		try_move_snake(DOWN)
-	elif event.is_action("left"):
+	elif event.is_action_pressed("left"):
 		try_move_snake(LEFT)
-	elif event.is_action("right"):
+	elif event.is_action_pressed("right"):
 		try_move_snake(RIGHT)
-	elif event.is_action("blelele"):
+	elif event.is_action_pressed("blelele"):
+		$Blelele.visible = not $Blelele.visible
 		pass # do something here
 	
 	
@@ -68,7 +69,7 @@ func update_sprites() -> void:
 		var tile_position = coords[i]
 		
 		# set appropriate location
-		sprite.position = tile_position * Globals.TILE_SIZE
+		sprite.position = (tile_position * Globals.TILE_SIZE) + Globals.TILE_CENTER_OFFSET
 
 		# set appropriate sprite
 		if i == 0:
@@ -76,7 +77,7 @@ func update_sprites() -> void:
 			var direction = coords[i] - coords[i + 1]
 			sprite.rotation_degrees = get_head_rotation(direction)
 			
-			$Blelele.position = (tile_position + direction) * Globals.TILE_SIZE
+			$Blelele.position = (tile_position + direction) * Globals.TILE_SIZE + Globals.TILE_CENTER_OFFSET
 			$Blelele.rotation_degrees = sprite.rotation_degrees
 			
 		elif i == coords.size() - 1:
