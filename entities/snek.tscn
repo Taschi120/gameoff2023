@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck4hcc5lt73ml"]
+
+[ext_resource type="Script" path="res://entities/snek.gd" id="1_fsct2"]
+[ext_resource type="Texture2D" uid="uid://hrj4716gfjlv" path="res://assets/snake-sprites.png" id="2_mua2a"]
+
+[node name="Snek" type="Node2D"]
+script = ExtResource("1_fsct2")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Blelele" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_mua2a")
+hframes = 6
+frame = 1

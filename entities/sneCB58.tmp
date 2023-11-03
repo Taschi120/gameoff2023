@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck4hcc5lt73ml"]
+
+[ext_resource type="Script" path="res://entities/snek.gd" id="1_fsct2"]
+
+[node name="Snek" type="Node2D"]
+script = ExtResource("1_fsct2")
+
+[node name="Sprites" type="Node2D" parent="."]
