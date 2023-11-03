@@ -20,6 +20,7 @@ var DOWN = Vector2i(0, 1)
 var LEFT = Vector2i(-1, 0)
 var RIGHT = Vector2i(1, 0)
 
+
 func _ready() -> void:
 	coords.append(Vector2i(2, 2))
 	coords.append(Vector2i(3, 2))
@@ -29,6 +30,32 @@ func _ready() -> void:
 	coords.append(Vector2i(4, 3))
 	coords.append(Vector2i(4, 2))
 	coords.append(Vector2i(5, 2))
+	update_sprites()
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("up"):
+		try_move_snake(UP)
+	elif event.is_action("down"):
+		try_move_snake(DOWN)
+	elif event.is_action("left"):
+		try_move_snake(LEFT)
+	elif event.is_action("right"):
+		try_move_snake(RIGHT)
+	elif event.is_action("blelele"):
+		pass # do something here
+	
+	
+func try_move_snake(direction: Vector2i) -> void:
+	assert(coords.size() >= 3)
+	var target_cell = coords[0] + direction
+	if coords.find(target_cell) >= 0:
+		# TODO - self-smash
+		return
+	# TODO check if tile is enterable!
+	
+	coords.push_front(target_cell)
+	coords.remove_at(coords.size() - 1)
+	assert(coords.size() >= 3)
 	update_sprites()
 	
 func update_sprites() -> void:
