@@ -19,12 +19,7 @@ jobs:
           mkdir -v -p build/linux build/windows build/mac build/web ~/.local/share/godot/templates
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
       - name: Windows Build
-        run: godot -v --export "Windows Desktop" "./build/windows/$EXPORT_NAME.exe"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: windows
-          path: ./build/windows/
+        run: godot -v --export-release "Windows Desktop" "./build/windows/$EXPORT_NAME.exe"
 
   export-web:
     name: Web Export
@@ -39,9 +34,4 @@ jobs:
           mkdir -v -p build/linux build/windows build/mac build/web ~/.local/share/godot/templates
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
       - name: Web Build
-        run: godot -v --export "HTML5" "./build/web/index.html"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: web
-          path: ./build/web/
+        run: godot -v --export-release "HTML5" "./build/web/index.html"
