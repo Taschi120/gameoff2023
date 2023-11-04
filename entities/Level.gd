@@ -5,6 +5,8 @@ class_name Level
 @export var starting_direction : Vector2i = Globals.UP
 @export var starting_size := 3
 
+var score = 0
+
 func _ready() -> void:
 	assert($Snek)
 	assert($TileMap)
@@ -54,3 +56,6 @@ func remove_cheeseboi(coords: Vector2i) -> void:
 func get_tile_map() -> TileMap:
 	assert($TileMap)
 	return $TileMap
+
+func _on_eaten() -> void:
+	score += 1
