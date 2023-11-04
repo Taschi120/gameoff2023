@@ -5,9 +5,11 @@ class_name Level
 @export var starting_direction : Vector2i = Globals.UP
 @export var starting_size := 3
 
-var score = 0
 # number of cheesebois at level start
 var starting_cheeseboi_count = -1
+
+var cheesebois_eaten = 0
+var step_count = 0
 
 func _ready() -> void:
 	assert($Snek)
@@ -78,7 +80,7 @@ func get_tile_map() -> TileMap:
 	return $TileMap
 	
 func try_exit_level() -> void:
-	if score == 0:
+	if cheesebois_eaten == 0:
 		print("Nothing eaten yet")
 		return
 	
@@ -98,4 +100,4 @@ func get_hud() -> HUD:
 	return get_parent().get_node("HUD") as HUD
 
 func _on_eaten() -> void:
-	score += 1
+	cheesebois_eaten += 1
