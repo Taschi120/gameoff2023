@@ -5,11 +5,14 @@ class_name Snek
 signal moved
 signal eaten
 signal trapped
+signal level_exit_hit
 
 @export var sprite_sheet: Texture = load("res://assets/snake-sprites.png")
 @export var sprite_sheet_size := Vector2i(6, 1)
 
 @export var level: Level
+
+var paused := false
 
 # Snake parts
 var BODY_STRAIGHT := RSprite.new(Vector2i(0,0), "straight")
@@ -22,6 +25,9 @@ var BLELELE := RSprite.new(Vector2i(1,0), "blelele")
 var coords: Array[Vector2i]
 	
 func _input(event: InputEvent) -> void:
+	if paused:
+		return
+		
 	if event.is_action_pressed("up"):
 		try_move_snake(Globals.UP)
 	elif event.is_action_pressed("down"):
@@ -32,8 +38,8 @@ func _input(event: InputEvent) -> void:
 		try_move_snake(Globals.RIGHT)
 	
 	if event.is_action_pressed("blelele"):
-		$Blelele.visible = not $Blelele.visible
-		pass # do something here
+		$Blelele.visible = true
+		$BleleleTimer.start()
 	
 	
 func try_move_snake(direction: Vector2i) -> void:
@@ -43,9 +49,8 @@ func try_move_snake(direction: Vector2i) -> void:
 		var target_cell = coords[0] + direction
 		var idx = coords.find(target_cell)
 		if idx >= 0 and idx != coords.size() - 1:
-			# TODO - self-smash
+			on_smash()
 			return
-		# TODO check if tile is enterable!
 		
 		coords.push_front(target_cell)
 		
@@ -56,12 +61,17 @@ func try_move_snake(direction: Vector2i) -> void:
 		else:
 			coords.remove_at(coords.size() - 1)
 			
+		if level.is_exit(target_cell):
+			level_exit_hit.emit()
+			
 		assert(coords.size() >= 3)
 		update_sprites()
 
 	else:
-		# TODO cannot move - play sound effect
-		pass
+		on_smash()
+		
+func on_smash():
+	$Sounds/Smash.play()
 	
 func update_sprites() -> void:
 	assert(coords.size() >= 3)
@@ -169,3 +179,7 @@ class RSprite:
 	func _init(_coords: Vector2i, _name: String):
 		coords = _coords
 		name = _name
+
+
+func _on_blelele_timer_timeout() -> void:
+	$Blelele.visible = false
