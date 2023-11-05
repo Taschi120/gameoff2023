@@ -37,6 +37,8 @@ func do(level: Level, snek: Snek) -> void:
 		# prune snek tail
 		snek.coords.remove_at(snek.coords.size() - 1)
 		
+	level.step_count += 1
+	snek.moved.emit()
 	snek.update_sprites()
 	check_trapped(level, snek)
 	check_victory(level, snek)
@@ -48,6 +50,9 @@ func undo(level: Level, snek: Snek) -> void:
 		level.add_cheeseboi(to)
 		level.cheesebois_eaten -= 1
 		level.eaten.emit()
+		
+	level.step_count -= 1
+	snek.moved.emit()
 	snek.update_sprites()
 	
 func check_trapped(level: Level, snek: Snek) -> void:

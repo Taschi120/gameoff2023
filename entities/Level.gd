@@ -89,11 +89,9 @@ func get_hud() -> HUD:
 	return get_parent().get_node("HUD") as HUD
 
 func _on_eaten() -> void:
-	cheesebois_eaten += 1
 	eaten.emit()
 
 func _on_snake_moved() -> void:
-	step_count += 1
 	moved.emit()
 	
 func get_score() -> int:

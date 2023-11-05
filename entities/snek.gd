@@ -138,7 +138,7 @@ func get_corner_torso_rotation(prev: Vector2i, next: Vector2i) -> int:
 func spawn_sprites_if_necessary() -> void:
 	while $Sprites.get_child_count() > coords.size():
 		$Sprites.remove_child($Sprites.get_child(\
-			$Sprites.get_child_count() - 1))
+		$Sprites.get_child_count() - 1))
 	while $Sprites.get_child_count() < coords.size():
 		print("Making additional snake sprite")
 		var sprite = Sprite2D.new()

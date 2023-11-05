@@ -50,6 +50,7 @@ layout_mode = 2
 text = "Press"
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 48)
 layout_mode = 2
 texture = ExtResource("3_2epkr")
 expand_mode = 2
