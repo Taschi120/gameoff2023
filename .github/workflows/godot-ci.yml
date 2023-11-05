@@ -50,7 +50,6 @@ jobs:
           zip ../../web.zip .
           popd
       - name: Upload to itch.io
-      - name: Upload to itch.io
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
         run: butler push web.zip ratsnakegames/gameoff-2023-wip:web
