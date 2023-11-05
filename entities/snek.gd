@@ -68,9 +68,22 @@ func try_move_snake(direction: Vector2i) -> void:
 			
 		assert(coords.size() >= 3)
 		update_sprites()
+		check_if_trapped()
 
 	else:
 		on_smash()
+		
+func check_if_trapped() -> void:
+	for direction in [Globals.UP, Globals.DOWN, Globals.LEFT, Globals.RIGHT]:
+		var cell = coords[0] + direction
+		if level.can_move_to(cell):
+			var idx = coords.find(cell)
+			if idx < 0:
+				print("can move to " + str(cell))
+				return
+			
+	print("trapped")
+	trapped.emit()
 		
 func on_smash():
 	$Sounds/Smash.play()
