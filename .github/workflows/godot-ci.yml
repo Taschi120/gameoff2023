@@ -23,7 +23,7 @@ jobs:
       - name: Make ZIP
         run: |
           cd ./build/windows
-          zip ../../win32.zip .
+          zip -r ../../win32.zip .
           cd ../..
       - name: Upload to itch.io
         env:
@@ -47,7 +47,7 @@ jobs:
       - name: Make ZIP
         run: |
           cd ./build/web
-          zip ../../web.zip .
+          zip -r ../../web.zip .
           cd ../..
       - name: Upload to itch.io
         env:
