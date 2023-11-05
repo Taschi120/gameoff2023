@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bg2dpnlcosp0u" path="res://3rdparty/kenney/ui/panel_beige.png" id="3_c4a5h"]
 [ext_resource type="Texture2D" uid="uid://c3jhuwfhgn6rh" path="res://assets/cheeseboi.png" id="4_68s81"]
 [ext_resource type="Texture2D" uid="uid://bbawoaamt8rdw" path="res://3rdparty/kenney/ui/panelInset_brown.png" id="4_b3hdo"]
-[ext_resource type="Texture2D" uid="uid://dql3hwv2na54a" path="res://assets/boot.png" id="6_p64jk"]
+[ext_resource type="Texture2D" uid="uid://dmdy5ssx1o7j" path="res://assets/clock.png" id="6_t3b7d"]
 
 [node name="HUD" type="CenterContainer" node_paths=PackedStringArray("cheeseboi_label", "steps_label")]
 offset_right = 196.0
@@ -76,7 +76,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/StatusBar/Steps/HBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("6_p64jk")
+texture = ExtResource("6_t3b7d")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/StatusBar/Steps/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
