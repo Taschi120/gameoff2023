@@ -35,3 +35,7 @@ jobs:
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
       - name: Web Build
         run: godot -v --headless --export-release "HTML5" "./build/web/index.html"
+      - name: Make ZIP
+        run: zip "./build/web/" web.zip
+      - name: Upload to itch.io
+        run: butler push web.zip ratsnakegames/gameoff-2023-wip:web
