@@ -2,19 +2,16 @@ extends Control
 
 class_name HUD
 
-var end_level_dialog_callback = null
+@export var cheeseboi_label : Label
+@export var steps_label : Label
 
 func _ready() -> void:
-	for child in get_children():
-		child.visible = false
-
-func show_end_level_confirmation(callback) -> void:
-	assert(end_level_dialog_callback == null)
-	end_level_dialog_callback = callback
-	$EndLevelConfirmDialog.open()
+	assert(cheeseboi_label)
+	assert(steps_label)
 	
-func _on_end_level_confirm_dialog_result(result: EndLevelConfirmDialog.Result) -> void:
-	assert(end_level_dialog_callback)
-	var callback = end_level_dialog_callback
-	end_level_dialog_callback = null
-	callback.call(result)
+func set_cheesebois(eaten: int, available: int) -> void:
+	cheeseboi_label.text = str(eaten) + "/" + str(available)
+
+func set_steps(steps: int) -> void:
+	steps_label.text = str(steps)
+

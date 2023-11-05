@@ -61,6 +61,8 @@ func try_move_snake(direction: Vector2i) -> void:
 		else:
 			coords.remove_at(coords.size() - 1)
 			
+		moved.emit()
+			
 		if level.is_exit(target_cell):
 			level_exit_hit.emit()
 			

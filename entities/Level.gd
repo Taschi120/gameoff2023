@@ -5,6 +5,9 @@ class_name Level
 @export var starting_direction : Vector2i = Globals.UP
 @export var starting_size := 3
 
+signal eaten
+signal moved
+
 # number of cheesebois at level start
 var starting_cheeseboi_count = -1
 
@@ -30,6 +33,7 @@ func spawn_snake() -> void:
 	snek.coords = cells
 	snek.update_sprites()
 	snek.level_exit_hit.connect(self.try_exit_level)
+	snek.moved.connect(self._on_snake_moved)
 	snek.eaten.connect(self._on_eaten)
 	
 func find_flag() -> Vector2i:
@@ -86,18 +90,24 @@ func try_exit_level() -> void:
 	
 	var snek = $Snek as Snek
 	snek.paused = true
-	
-	var hud = get_hud()
+
 	var callback = func(result: EndLevelConfirmDialog.Result) -> void:
 		if result == EndLevelConfirmDialog.Result.CONTINUE:
 			snek.paused = false
 		else:
 			# TODO end level
 			pass
-	hud.show_end_level_confirmation(callback)
+	get_parent().get_node("EndLevelConfirmDialog") \
+		.show_end_level_confirmation(callback)
 	
 func get_hud() -> HUD:
 	return get_parent().get_node("HUD") as HUD
 
 func _on_eaten() -> void:
 	cheesebois_eaten += 1
+	eaten.emit()
+
+func _on_snake_moved() -> void:
+	step_count += 1
+	moved.emit()
+
