@@ -10,7 +10,7 @@ signal level_exit_hit
 @export var sprite_sheet: Texture = load("res://assets/snake-sprites.png")
 @export var sprite_sheet_size := Vector2i(6, 1)
 
-@export var level: Level
+var command_executor: CommandExecutor
 
 var paused := false
 
@@ -43,47 +43,23 @@ func _input(event: InputEvent) -> void:
 	
 	
 func try_move_snake(direction: Vector2i) -> void:
-	assert(coords.size() >= 3)
-	assert(level)
-	if level.can_move_to(coords[0] + direction):
-		var target_cell = coords[0] + direction
-		var idx = coords.find(target_cell)
-		if idx >= 0 and idx != coords.size() - 1:
-			on_smash()
-			return
-		
-		coords.push_front(target_cell)
-		
-		if level.is_cheeseboi(target_cell):
-			print("chomp")
-			level.remove_cheeseboi(target_cell)
-			eaten.emit()
-		else:
-			coords.remove_at(coords.size() - 1)
-			
-		moved.emit()
-			
-		if level.is_exit(target_cell):
-			level_exit_hit.emit()
-			
-		assert(coords.size() >= 3)
-		update_sprites()
-		check_if_trapped()
-
-	else:
-		on_smash()
+	assert(command_executor)
+	var command = MoveCommand.new(coords[0] + direction)
+	if command_executor.can_execute(command):
+		command_executor.execute(command)
 		
 func check_if_trapped() -> void:
-	for direction in [Globals.UP, Globals.DOWN, Globals.LEFT, Globals.RIGHT]:
-		var cell = coords[0] + direction
-		if level.can_move_to(cell):
-			var idx = coords.find(cell)
-			if idx < 0:
-				print("can move to " + str(cell))
-				return
-			
-	print("trapped")
-	trapped.emit()
+	pass # TODO move into command
+#	for direction in [Globals.UP, Globals.DOWN, Globals.LEFT, Globals.RIGHT]:
+#		var cell = coords[0] + direction
+#		if level.can_move_to(cell):
+#			var idx = coords.find(cell)
+#			if idx < 0:
+#				print("can move to " + str(cell))
+#				return
+#
+#	print("trapped")
+#	trapped.emit()
 		
 func on_smash():
 	$Sounds/Smash.play()

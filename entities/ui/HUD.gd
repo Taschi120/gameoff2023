@@ -10,7 +10,7 @@ func _ready() -> void:
 	assert(steps_label)
 	
 func set_cheesebois(eaten: int, available: int) -> void:
-	cheeseboi_label.text = str(eaten) + "/" + str(available)
+	cheeseboi_label.text = "%02d/%02d" % [eaten, available]
 
 func set_steps(steps: int) -> void:
 	steps_label.text = str(steps)

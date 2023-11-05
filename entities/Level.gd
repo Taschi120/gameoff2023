@@ -29,7 +29,6 @@ func spawn_snake() -> void:
 		location - 2*starting_direction
 	]
 	
-	snek.level = self
 	snek.coords = cells
 	snek.update_sprites()
 	snek.level_exit_hit.connect(self.try_exit_level)

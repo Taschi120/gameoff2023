@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dlfpsajfoyq0w"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dlfpsajfoyq0w"]
 
 [ext_resource type="FontFile" uid="uid://doenevtgwmlfj" path="res://3rdparty/kenney/fonts/Kenney Pixel.ttf" id="1_ofbpe"]
 [ext_resource type="StyleBox" uid="uid://b0waqgms0y75f" path="res://button-style-normal.tres" id="2_513dk"]
 [ext_resource type="Texture2D" uid="uid://dmf4djqlgb563" path="res://3rdparty/kenney/ui/buttonLong_brown_pressed.png" id="3_d33oy"]
+[ext_resource type="FontFile" uid="uid://3kbfval4g0bh" path="res://3rdparty/kenney/fonts/Kenney Mini Square Mono.ttf" id="4_wiouk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ayp53"]
 texture = ExtResource("3_d33oy")
@@ -24,6 +25,9 @@ Button/styles/normal = ExtResource("2_513dk")
 Button/styles/pressed = SubResource("StyleBoxTexture_ayp53")
 Dialog/base_type = &"PanelContainer"
 HeaderLarge/font_sizes/font_size = 52
+HudLabel/base_type = &"Label"
+HudLabel/font_sizes/font_size = 22
+HudLabel/fonts/font = ExtResource("4_wiouk")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 32

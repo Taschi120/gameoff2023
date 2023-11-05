@@ -1,12 +1,17 @@
 extends Node
 
 @onready var hud = $HUD as HUD
+@onready var command_executor = $CommandExecutor as CommandExecutor
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(hud)
 	get_level().eaten.connect(update_hud)
 	get_level().moved.connect(update_hud)
+	
+	command_executor.level = $PrototypeLevel
+	command_executor.snek = $PrototypeLevel/Snek
+	$PrototypeLevel/Snek.command_executor = command_executor
 
 func update_hud() -> void:
 	var level = get_level()
