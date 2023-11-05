@@ -21,7 +21,7 @@ jobs:
       - name: Windows Build
         run: godot -v --headless --export-release "Windows Desktop" "./build/windows/$EXPORT_NAME.exe"
       - name: Make ZIP
-        run: rm -f win32.zip && zip -j win32.zip build/win32/*
+        run: rm -f win32.zip && zip -j win32.zip build/windows
       - name: Upload to itch.io
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
@@ -43,12 +43,8 @@ jobs:
         run: godot -v --headless --export-release "HTML5" "./build/web/index.html"
       - name: Make ZIP
         run: |
-          set -x
-          pwd
-          ls
-          ls build
           ls build/web
-          rm -f web.zip && zip -j web.zip "./build/web/*"
+          rm -f web.zip && zip -j web.zip build/web
       - name: Upload to itch.io
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
