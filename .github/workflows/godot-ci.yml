@@ -48,7 +48,9 @@ jobs:
           ls
           ls build
           ls build/web
-          rm -f web.zip && zip -j web.zip build/web/*
+          ls out
+          ls out/web
+          rm -f web.zip && zip -j web.zip "./build/web/*"
       - name: Upload to itch.io
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
