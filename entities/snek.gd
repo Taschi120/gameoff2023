@@ -36,6 +36,8 @@ func _input(event: InputEvent) -> void:
 		try_move_snake(Globals.LEFT)
 	elif event.is_action_pressed("right"):
 		try_move_snake(Globals.RIGHT)
+	elif event.is_action_pressed("rewind"):
+		command_executor.rewind()
 	
 	if event.is_action_pressed("blelele"):
 		$Blelele.visible = true
@@ -47,19 +49,6 @@ func try_move_snake(direction: Vector2i) -> void:
 	var command = MoveCommand.new(coords[0] + direction)
 	if command_executor.can_execute(command):
 		command_executor.execute(command)
-		
-func check_if_trapped() -> void:
-	pass # TODO move into command
-#	for direction in [Globals.UP, Globals.DOWN, Globals.LEFT, Globals.RIGHT]:
-#		var cell = coords[0] + direction
-#		if level.can_move_to(cell):
-#			var idx = coords.find(cell)
-#			if idx < 0:
-#				print("can move to " + str(cell))
-#				return
-#
-#	print("trapped")
-#	trapped.emit()
 		
 func on_smash():
 	$Sounds/Smash.play()
@@ -147,8 +136,9 @@ func get_corner_torso_rotation(prev: Vector2i, next: Vector2i) -> int:
 	
 
 func spawn_sprites_if_necessary() -> void:
-	assert($Sprites.get_child_count() <= coords.size())
-	
+	while $Sprites.get_child_count() > coords.size():
+		$Sprites.remove_child($Sprites.get_child(\
+			$Sprites.get_child_count() - 1))
 	while $Sprites.get_child_count() < coords.size():
 		print("Making additional snake sprite")
 		var sprite = Sprite2D.new()

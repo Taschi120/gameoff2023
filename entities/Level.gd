@@ -78,6 +78,9 @@ func is_exit(coords: Vector2i) -> bool:
 func remove_cheeseboi(coords: Vector2i) -> void:
 	get_tile_map().set_cell(1, coords, -1)
 	
+func add_cheeseboi(coords: Vector2i) -> void:
+	get_tile_map().set_cell(1, coords, 3, Vector2i(0,0))
+	
 func get_tile_map() -> TileMap:
 	assert($TileMap)
 	return $TileMap

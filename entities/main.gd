@@ -6,12 +6,14 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(hud)
-	get_level().eaten.connect(update_hud)
-	get_level().moved.connect(update_hud)
-	
+	var snek = $PrototypeLevel/Snek as Snek
+	var level = get_level()
+	level.eaten.connect(update_hud)
+	level.moved.connect(update_hud)
+	snek.trapped.connect(show_stuck_prompt)
 	command_executor.level = $PrototypeLevel
 	command_executor.snek = $PrototypeLevel/Snek
-	$PrototypeLevel/Snek.command_executor = command_executor
+	snek.command_executor = command_executor
 
 func update_hud() -> void:
 	var level = get_level()
@@ -19,8 +21,11 @@ func update_hud() -> void:
 	hud.set_cheesebois(level.cheesebois_eaten, level.starting_cheeseboi_count)
 	hud.set_steps(level.step_count)
 
+func show_stuck_prompt() -> void:
+	$StuckPrompt.show()
+	
 func get_level() -> Level:
 	return $PrototypeLevel as Level
 	
 func get_snek() -> Snek:
-	return get_node("Snek") as Snek
+	return $PrototypeLevel/Snek as Snek

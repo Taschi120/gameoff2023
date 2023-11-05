@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://2x450ojqcueh"]
+
+[ext_resource type="Theme" uid="uid://dlfpsajfoyq0w" path="res://ui-theme.tres" id="1_dkspu"]
+[ext_resource type="Script" path="res://entities/ui/StuckPrompt.gd" id="2_1i7an"]
+[ext_resource type="Texture2D" uid="uid://bg2dpnlcosp0u" path="res://3rdparty/kenney/ui/panel_beige.png" id="2_vwkin"]
+[ext_resource type="Texture2D" uid="uid://jcqvs2e607ix" path="res://3rdparty/kenney/inputprompts/Tiles (Black)/tile_0360.png" id="3_2epkr"]
+
+[node name="StuckPrompt" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -82.0
+offset_right = 109.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkspu")
+script = ExtResource("2_1i7an")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_vwkin")
+patch_margin_left = 14
+patch_margin_top = 80
+patch_margin_right = 18
+patch_margin_bottom = 84
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "You're stuck!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Press"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_2epkr")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "to rewind."
+
+[node name="Timeout" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="Timeout" to="." method="_on_timeout_timeout"]

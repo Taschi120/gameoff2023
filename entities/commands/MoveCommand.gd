@@ -26,7 +26,7 @@ func can_do(level: Level, snek: Snek) -> bool:
 
 func do(level: Level, snek: Snek) -> void:
 	assert(can_do(level, snek))
-	previous_snake_state = snek.coords
+	previous_snake_state = snek.coords.duplicate(true)
 	cheeseboi = level.is_cheeseboi(to)
 	snek.coords.push_front(to)
 	if cheeseboi:
@@ -38,7 +38,27 @@ func do(level: Level, snek: Snek) -> void:
 		snek.coords.remove_at(snek.coords.size() - 1)
 		
 	snek.update_sprites()
+	
+	# check for stuckness
+	var stuck = true
+	for direction in [Globals.UP, Globals.DOWN, Globals.LEFT, Globals.RIGHT]:
+		var cell = snek.coords[0] + direction
+		if level.can_move_to(cell):
+			var idx = snek.coords.find(cell)
+			if idx < 0:
+				stuck = false
+				break
+	if stuck:
+		print("trapped")
+		snek.trapped.emit()
 
+func undo(level: Level, snek: Snek) -> void:
+	snek.coords = previous_snake_state.duplicate(true)
+	if cheeseboi:
+		level.add_cheeseboi(to)
+		level.cheesebois_eaten -= 1
+		level.eaten.emit()
+	snek.update_sprites()
 	
 func debug_string() -> String:
 	return "MoveCommand(%d, %d)" % [to.x, to.y]
