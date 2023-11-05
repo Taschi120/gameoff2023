@@ -24,7 +24,7 @@ jobs:
         run: |
           ls -al
           cd ./build/windows
-          zip -r ../../win32.zip *
+          zip -r ../../win32.zip -i *
           cd ../..
       - name: Upload to itch.io
         env:
@@ -47,9 +47,9 @@ jobs:
         run: godot -v --headless --export-release "HTML5" "./build/web/index.html"
       - name: Make ZIP
         run: |
-          ls -al
           cd ./build/web
-          zip -r ../../web.zip *
+          ls -al
+          zip -r ../../web.zip -i *
           cd ../..
       - name: Upload to itch.io
         env:
