@@ -20,6 +20,10 @@ jobs:
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
       - name: Windows Build
         run: godot -v --headless --export-release "Windows Desktop" "./build/windows/$EXPORT_NAME.exe"
+      - name: Make ZIP
+        run: zip win32.zip "./build/windows/" 
+      - name: Upload to itch.io
+        run: butler push win32.zip ratsnakegames/gameoff-2023-wip:win32
 
   export-web:
     name: Web Export
@@ -36,6 +40,6 @@ jobs:
       - name: Web Build
         run: godot -v --headless --export-release "HTML5" "./build/web/index.html"
       - name: Make ZIP
-        run: zip "./build/web/" web.zip
+        run: zip web.zip "./build/web/" 
       - name: Upload to itch.io
         run: butler push web.zip ratsnakegames/gameoff-2023-wip:web
