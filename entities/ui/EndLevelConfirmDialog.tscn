@@ -1,9 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpvdgv2wayty1"]
+[gd_scene load_steps=5 format=3 uid="uid://erf61i8enctf"]
 
 [ext_resource type="Theme" uid="uid://dlfpsajfoyq0w" path="res://ui-theme.tres" id="1_iuda5"]
-[ext_resource type="Script" path="res://entities/ui/EndLevelConfirmDialog.gd" id="2_7j00m"]
 [ext_resource type="Texture2D" uid="uid://juln6mitqqjq" path="res://3rdparty/kenney/ui/panelInset_beige.png" id="2_bqswe"]
 [ext_resource type="Texture2D" uid="uid://c3jhuwfhgn6rh" path="res://assets/cheeseboi.png" id="2_x6b7u"]
+
+[sub_resource type="GDScript" id="GDScript_yefya"]
+script/source = "extends CenterContainer
+
+class_name EndLevelConfirmDialog
+
+@export var exit_button: Button
+@export var continue_button: Button
+
+enum Result { CONTINUE, END_LEVEL }
+
+signal result
+
+var end_level_dialog_callback = null
+
+func _ready() -> void:
+	assert(exit_button)
+	assert(continue_button)
+	assert(end_level_dialog_callback == null)
+
+func show_end_level_confirmation(callback) -> void:
+	assert(end_level_dialog_callback == null)
+	end_level_dialog_callback = callback
+	visible = true
+	
+func _on_end_level_confirm_dialog_result(result: EndLevelConfirmDialog.Result) -> void:
+	assert(end_level_dialog_callback)
+	var callback = end_level_dialog_callback
+	end_level_dialog_callback = null
+	callback.call(result)
+
+func _on_exit_pressed() -> void:
+	visible = false
+	_on_end_level_confirm_dialog_result(Result.END_LEVEL)
+
+func _on_continue_pressed() -> void:
+	visible = false
+	_on_end_level_confirm_dialog_result(Result.CONTINUE)
+"
 
 [node name="EndLevelConfirmDialog" type="CenterContainer" node_paths=PackedStringArray("exit_button", "continue_button")]
 anchors_preset = 15
@@ -12,7 +50,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_iuda5")
-script = ExtResource("2_7j00m")
+script = SubResource("GDScript_yefya")
 exit_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Exit")
 continue_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Continue")
 

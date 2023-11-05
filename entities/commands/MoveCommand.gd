@@ -38,8 +38,19 @@ func do(level: Level, snek: Snek) -> void:
 		snek.coords.remove_at(snek.coords.size() - 1)
 		
 	snek.update_sprites()
+	check_trapped(level, snek)
+	check_victory(level, snek)
 	
-	# check for stuckness
+
+func undo(level: Level, snek: Snek) -> void:
+	snek.coords = previous_snake_state.duplicate(true)
+	if cheeseboi:
+		level.add_cheeseboi(to)
+		level.cheesebois_eaten -= 1
+		level.eaten.emit()
+	snek.update_sprites()
+	
+func check_trapped(level: Level, snek: Snek) -> void:
 	var stuck = true
 	for direction in [Globals.UP, Globals.DOWN, Globals.LEFT, Globals.RIGHT]:
 		var cell = snek.coords[0] + direction
@@ -51,14 +62,15 @@ func do(level: Level, snek: Snek) -> void:
 	if stuck:
 		print("trapped")
 		snek.trapped.emit()
-
-func undo(level: Level, snek: Snek) -> void:
-	snek.coords = previous_snake_state.duplicate(true)
-	if cheeseboi:
-		level.add_cheeseboi(to)
-		level.cheesebois_eaten -= 1
-		level.eaten.emit()
-	snek.update_sprites()
+		
+func check_victory(level: Level, snek: Snek) -> void:
+	if level.cheesebois_eaten <= 0:
+		return # TODO Message?
+	if level.is_exit(to):
+		print("At level exit!")
+		level.exited.emit()
+		
+	
 	
 func debug_string() -> String:
 	return "MoveCommand(%d, %d)" % [to.x, to.y]

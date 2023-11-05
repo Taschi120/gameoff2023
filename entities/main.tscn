@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://entities/main.gd" id="1_k5wbg"]
 [ext_resource type="PackedScene" uid="uid://cjmg2xrly13sq" path="res://entities/ui/HUD.tscn" id="2_4akp8"]
 [ext_resource type="Script" path="res://entities/commands/CommandExecutor.gd" id="3_2ih3h"]
-[ext_resource type="PackedScene" uid="uid://dpvdgv2wayty1" path="res://entities/ui/EndLevelConfirmDialog.tscn" id="3_k0h8a"]
 [ext_resource type="PackedScene" uid="uid://2x450ojqcueh" path="res://entities/ui/StuckPrompt.tscn" id="6_fmm0r"]
+[ext_resource type="PackedScene" uid="uid://d1dl782jdp3vd" path="res://entities/ui/LevelScoreDialog.tscn" id="7_e13uh"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_k5wbg")
@@ -17,8 +17,8 @@ script = ExtResource("3_2ih3h")
 
 [node name="HUD" parent="." instance=ExtResource("2_4akp8")]
 
-[node name="EndLevelConfirmDialog" parent="." instance=ExtResource("3_k0h8a")]
+[node name="StuckPrompt" parent="." instance=ExtResource("6_fmm0r")]
 visible = false
 
-[node name="StuckPrompt" parent="." instance=ExtResource("6_fmm0r")]
+[node name="LevelScoreDialog" parent="." instance=ExtResource("7_e13uh")]
 visible = false

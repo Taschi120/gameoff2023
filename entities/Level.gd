@@ -7,6 +7,7 @@ class_name Level
 
 signal eaten
 signal moved
+signal exited
 
 # number of cheesebois at level start
 var starting_cheeseboi_count = -1
@@ -31,7 +32,6 @@ func spawn_snake() -> void:
 	
 	snek.coords = cells
 	snek.update_sprites()
-	snek.level_exit_hit.connect(self.try_exit_level)
 	snek.moved.connect(self._on_snake_moved)
 	snek.eaten.connect(self._on_eaten)
 	
@@ -85,23 +85,6 @@ func get_tile_map() -> TileMap:
 	assert($TileMap)
 	return $TileMap
 	
-func try_exit_level() -> void:
-	if cheesebois_eaten == 0:
-		print("Nothing eaten yet")
-		return
-	
-	var snek = $Snek as Snek
-	snek.paused = true
-
-	var callback = func(result: EndLevelConfirmDialog.Result) -> void:
-		if result == EndLevelConfirmDialog.Result.CONTINUE:
-			snek.paused = false
-		else:
-			# TODO end level
-			pass
-	get_parent().get_node("EndLevelConfirmDialog") \
-		.show_end_level_confirmation(callback)
-	
 func get_hud() -> HUD:
 	return get_parent().get_node("HUD") as HUD
 
@@ -112,4 +95,10 @@ func _on_eaten() -> void:
 func _on_snake_moved() -> void:
 	step_count += 1
 	moved.emit()
-
+	
+func get_score() -> int:
+	return floor((cheesebois_eaten * 1000) - (step_count * 10))
+	
+func get_level_name() -> String:
+	assert(false, "no level name provided")
+	return "Untitled"
