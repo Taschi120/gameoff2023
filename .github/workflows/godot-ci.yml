@@ -43,7 +43,11 @@ jobs:
         run: godot -v --headless --export-release "HTML5" "./build/web/index.html"
       - name: Make ZIP
         run: |
+          set -x
           pwd
+          ls
+          ls build
+          ls build/web
           rm -f web.zip && zip -j web.zip build/web/*
       - name: Upload to itch.io
         env:
