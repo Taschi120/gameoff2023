@@ -24,7 +24,7 @@ jobs:
         run: |
           ls -al
           cd ./build/windows
-          zip -r ../../win32.zip .
+          zip -r ../../win32.zip *
           cd ../..
       - name: Upload to itch.io
         env:
@@ -49,7 +49,7 @@ jobs:
         run: |
           ls -al
           cd ./build/web
-          zip -r ../../web.zip .
+          zip -r ../../web.zip *
           cd ../..
       - name: Upload to itch.io
         env:
