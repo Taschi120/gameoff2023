@@ -57,11 +57,12 @@ func undo(level: Level, snek: Snek) -> void:
 	
 func check_trapped(level: Level, snek: Snek) -> void:
 	var stuck = true
+	var snek_length = snek.coords.size()
 	for direction in [Globals.UP, Globals.DOWN, Globals.LEFT, Globals.RIGHT]:
 		var cell = snek.coords[0] + direction
 		if level.can_move_to(cell):
 			var idx = snek.coords.find(cell)
-			if idx < 0:
+			if idx < 0 or idx >= snek_length - 1:
 				stuck = false
 				break
 	if stuck:
