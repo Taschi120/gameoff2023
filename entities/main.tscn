@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4d2q6kgyigmu"]
+[gd_scene load_steps=10 format=3 uid="uid://c4d2q6kgyigmu"]
 
 [ext_resource type="PackedScene" uid="uid://dgaanbbkvl8gm" path="res://entities/levels/PrototypeLevel.tscn" id="1_3fxte"]
 [ext_resource type="Script" path="res://entities/main.gd" id="1_k5wbg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d1dl782jdp3vd" path="res://entities/ui/LevelScoreDialog.tscn" id="7_e13uh"]
 [ext_resource type="PackedScene" uid="uid://x1mhxwavtujg" path="res://entities/ui/tutorials/TutorialManager.tscn" id="7_u82bb"]
 [ext_resource type="PackedScene" uid="uid://1igh4oymg6lh" path="res://entities/ui/TouchUI.tscn" id="8_mpj7u"]
+[ext_resource type="PackedScene" uid="uid://c05djtd4u67o7" path="res://entities/ui/CRTShader.tscn" id="9_1al12"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_k5wbg")
@@ -29,3 +30,5 @@ visible = false
 
 [node name="TouchUI" parent="." instance=ExtResource("8_mpj7u")]
 visible = false
+
+[node name="CRTShader" parent="." instance=ExtResource("9_1al12")]

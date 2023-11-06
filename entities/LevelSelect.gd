@@ -3,6 +3,7 @@ extends CenterContainer
 class_name LevelSelect
 
 func _on_tutorial_1_pressed() -> void:
+	print("PrototypeLevel")
 	load_level("PrototypeLevel")
 
 func load_level(name: String) -> void:
