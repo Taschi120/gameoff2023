@@ -2,11 +2,15 @@
 
 [ext_resource type="FontFile" uid="uid://doenevtgwmlfj" path="res://3rdparty/kenney/fonts/Kenney Pixel.ttf" id="1_ofbpe"]
 [ext_resource type="StyleBox" uid="uid://b0waqgms0y75f" path="res://button-style-normal.tres" id="2_513dk"]
-[ext_resource type="Texture2D" uid="uid://dmf4djqlgb563" path="res://3rdparty/kenney/ui/buttonLong_brown_pressed.png" id="3_d33oy"]
+[ext_resource type="Texture2D" uid="uid://c73rm2i1g0f24" path="res://assets/button-nine-pressed.png" id="3_mfj7a"]
 [ext_resource type="FontFile" uid="uid://3kbfval4g0bh" path="res://3rdparty/kenney/fonts/Kenney Mini Square Mono.ttf" id="4_wiouk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ayp53"]
-texture = ExtResource("3_d33oy")
+texture = ExtResource("3_mfj7a")
+texture_margin_left = 6.13318
+texture_margin_top = 5.73749
+texture_margin_right = 6.72672
+texture_margin_bottom = 7.5181
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
