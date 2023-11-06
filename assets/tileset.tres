@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://17uqje7b3j2k"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://17uqje7b3j2k"]
 
 [ext_resource type="Texture2D" uid="uid://coobgnsex7de2" path="res://3rdparty/urizen_onebit_tileset__v1d0.png" id="1_8ifsm"]
 [ext_resource type="Texture2D" uid="uid://b1quueomgeopq" path="res://assets/flag.png" id="2_4u6t5"]
@@ -3829,6 +3829,9 @@ texture_region_size = Vector2i(12, 12)
 1:49/0 = 0
 0:49/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjjl4"]
+texture_region_size = Vector2i(12, 12)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gk2nj"]
 texture = ExtResource("2_4u6t5")
 texture_region_size = Vector2i(12, 12)
@@ -3851,3 +3854,4 @@ custom_data_layer_1/type = 4
 sources/0 = SubResource("TileSetAtlasSource_qotbm")
 sources/2 = SubResource("TileSetAtlasSource_gk2nj")
 sources/3 = SubResource("TileSetAtlasSource_m4cif")
+sources/1 = SubResource("TileSetAtlasSource_pjjl4")

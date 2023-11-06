@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://1bvm7b7kkput"]
+
+[ext_resource type="Texture2D" uid="uid://bkbp7ntihowja" path="res://assets/dialog-ninefold.png" id="1_5a114"]
+
+[node name="PanelNinepatch" type="NinePatchRect"]
+texture = ExtResource("1_5a114")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
