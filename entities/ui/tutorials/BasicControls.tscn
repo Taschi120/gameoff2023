@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://sijdlk2x8un5"]
+[gd_scene load_steps=15 format=3 uid="uid://sijdlk2x8un5"]
 
 [ext_resource type="Theme" uid="uid://dlfpsajfoyq0w" path="res://ui-theme.tres" id="1_psex5"]
 [ext_resource type="Script" path="res://entities/ui/tutorials/BasicControls.gd" id="2_6sbh4"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bm6crdrhb3jrs" path="res://3rdparty/kenney/inputprompts/Tiles (Black)/tile_0441.png" id="9_4corw"]
 [ext_resource type="Texture2D" uid="uid://bdqoks80bn3nm" path="res://3rdparty/kenney/inputprompts/Tiles (Black)/tile_0440.png" id="10_mgbkx"]
 [ext_resource type="Texture2D" uid="uid://p4fi7rphpmpd" path="res://3rdparty/kenney/inputprompts/Tiles (Black)/tile_0439.png" id="11_hpykl"]
+[ext_resource type="Texture2D" uid="uid://c3wq0kjvs06w4" path="res://3rdparty/modified/kenney_enter.png" id="14_26i3e"]
 
 [node name="BasicControls" type="CenterContainer"]
 anchors_preset = 8
@@ -195,5 +196,7 @@ text = "Then Leave at the Flag"
 [node name="ExitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Got it!"
+icon = ExtResource("14_26i3e")
+icon_alignment = 2
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
