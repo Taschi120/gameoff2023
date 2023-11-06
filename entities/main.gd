@@ -1,5 +1,7 @@
 extends Node
 
+class_name MainScene
+
 @onready var hud = $HUD as HUD
 @onready var command_executor = $CommandExecutor as CommandExecutor
 @onready var level_score_dialog = $LevelScoreDialog as LevelScoreDialog
@@ -7,15 +9,15 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(hud)
-	var snek = $PrototypeLevel/Snek as Snek
+	var snek = $Level/Snek as Snek
 	var level = get_level()
 	level.eaten.connect(update_hud)
 	level.moved.connect(update_hud)
 	level.exited.connect(show_end_of_level_dialog)
 	level.tutorial_manager = $TutorialManager
 	snek.trapped.connect(show_stuck_prompt)
-	command_executor.level = $PrototypeLevel
-	command_executor.snek = $PrototypeLevel/Snek
+	command_executor.level = $Level
+	command_executor.snek = $Level/Snek
 	snek.command_executor = command_executor
 	level._show_tutorials()
 
@@ -39,9 +41,17 @@ func show_end_of_level_dialog() -> void:
 		level.step_count, \
 		level.get_score(), \
 		callback)
+		
+func load_level(name: String) -> void:
+	var scene_resource = load("res://entities/levels/%s.tscn" % name)
+	var level = scene_resource.instantiate() as Level
+	remove_child($Level)
+	level.name = "Level"
+	add_child(level)
+	move_child(level, 0)
 	
 func get_level() -> Level:
-	return $PrototypeLevel as Level
+	return $Level as Level
 	
 func get_snek() -> Snek:
-	return $PrototypeLevel/Snek as Snek
+	return $Level/Snek as Snek
