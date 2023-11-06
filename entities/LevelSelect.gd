@@ -2,17 +2,15 @@ extends CenterContainer
 
 class_name LevelSelect
 
-func _on_tutorial_1_pressed() -> void:
-	print("PrototypeLevel")
-	load_level("PrototypeLevel")
+@export var level_button_container : Container
 
-func load_level(name: String) -> void:
-	var main_screen_resource = load("res://entities/main.tscn")
-	var main_screen = main_screen_resource.instantiate() as MainScene
+func _ready() -> void:
+	for level in LevelManager.LEVELS:
+		var button = Button.new()
+		button.text = level["display_name"]
+		button.pressed.connect(func(): _on_level_button_pressed(level))
+		level_button_container.add_child(button)
 
-	main_screen.load_level(name)
-
-	get_tree().root.add_child(main_screen)
-
-	get_tree().root.remove_child(self)
-	self.queue_free()
+func _on_level_button_pressed(level: Dictionary) -> void:
+	print("Level chosen: %s [%s]" % [level["display_name"], level["id"]])
+	LevelManager.load_level(level, get_tree(), self)

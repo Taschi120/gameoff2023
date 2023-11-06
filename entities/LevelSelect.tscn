@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://1bvm7b7kkput" path="res://entities/ui/PanelNinefold.tscn" id="4_rn0tj"]
 [ext_resource type="PackedScene" uid="uid://c05djtd4u67o7" path="res://entities/ui/CRTShader.tscn" id="5_oc4gc"]
 
-[node name="LevelSelect" type="CenterContainer"]
+[node name="LevelSelect" type="CenterContainer" node_paths=PackedStringArray("level_button_container")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,6 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_hhh4w")
 script = ExtResource("2_23swd")
+level_button_container = NodePath("HBoxContainer/LevelSelect/MarginContainer/VBoxContainer")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)
@@ -42,27 +43,6 @@ layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Level Select"
 
-[node name="Tutorial1" type="Button" parent="HBoxContainer/LevelSelect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Tutorial 1
-"
-
-[node name="Button" type="Button" parent="HBoxContainer/LevelSelect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Tutorial 2
-"
-
-[node name="Button2" type="Button" parent="HBoxContainer/LevelSelect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "1-1
-"
-
-[node name="Button3" type="Button" parent="HBoxContainer/LevelSelect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "1-2"
-
 [node name="CRTShader" parent="." instance=ExtResource("5_oc4gc")]
 custom_minimum_size = Vector2(1280, 720)
 layout_mode = 2
-
-[connection signal="pressed" from="HBoxContainer/LevelSelect/MarginContainer/VBoxContainer/Tutorial1" to="." method="_on_tutorial_1_pressed"]

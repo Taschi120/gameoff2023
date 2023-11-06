@@ -42,11 +42,13 @@ func show_end_of_level_dialog() -> void:
 		level.get_score(), \
 		callback)
 		
-func load_level(name: String) -> void:
-	var scene_resource = load("res://entities/levels/%s.tscn" % name)
+func load_level(data: Dictionary) -> void:
+	var scene_resource = load("res://entities/levels/%s.tscn" % data["id"])
 	var level = scene_resource.instantiate() as Level
+	assert(level)
 	remove_child($Level)
 	level.name = "Level"
+	level.level_name = data["display_name"]
 	add_child(level)
 	move_child(level, 0)
 	

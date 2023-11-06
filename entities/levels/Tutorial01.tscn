@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgaanbbkvl8gm"]
 
-[ext_resource type="Script" path="res://entities/levels/PrototypeLevel.gd" id="1_2x8pa"]
-[ext_resource type="TileSet" uid="uid://17uqje7b3j2k" path="res://assets/tileset.tres" id="2_evvw5"]
-[ext_resource type="PackedScene" uid="uid://ck4hcc5lt73ml" path="res://entities/snek.tscn" id="3_v4c3q"]
+[ext_resource type="Script" path="res://entities/levels/Tutorial01.gd" id="1_wke6n"]
+[ext_resource type="TileSet" uid="uid://17uqje7b3j2k" path="res://assets/tileset.tres" id="2_inddu"]
+[ext_resource type="PackedScene" uid="uid://ck4hcc5lt73ml" path="res://entities/snek.tscn" id="3_a4qle"]
 
 [node name="PrototypeLevel" type="Node2D"]
 scale = Vector2(4, 4)
-script = ExtResource("1_2x8pa")
+script = ExtResource("1_wke6n")
 starting_direction = Vector2i(1, 0)
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("2_evvw5")
+tile_set = ExtResource("2_inddu")
 cell_quadrant_size = 12
 format = 2
 layer_0/name = "background"
@@ -23,4 +23,4 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(262147, 3, 0, 131083, 3, 0, 524303, 3, 0, 786433, 2, 0)
 
-[node name="Snek" parent="." instance=ExtResource("3_v4c3q")]
+[node name="Snek" parent="." instance=ExtResource("3_a4qle")]

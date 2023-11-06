@@ -17,6 +17,8 @@ var starting_cheeseboi_count = -1
 var cheesebois_eaten = 0
 var step_count = 0
 
+var level_name := "Unnamed"
+
 func _ready() -> void:
 	assert($Snek)
 	assert($TileMap)
@@ -100,8 +102,7 @@ func get_score() -> int:
 	return floor((cheesebois_eaten * 1000) - (step_count * 10))
 	
 func get_level_name() -> String:
-	assert(false, "no level name provided")
-	return "Untitled"
+	return level_name
 
 func _show_tutorials() -> void:
 	pass # to be overridden in child classes
