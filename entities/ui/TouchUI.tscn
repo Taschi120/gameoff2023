@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://1igh4oymg6lh"]
+
+[ext_resource type="Texture2D" uid="uid://85txtw41eflp" path="res://3rdparty/kenney/onscreen_controls/transparentDark24.png" id="1_rkghi"]
+[ext_resource type="Texture2D" uid="uid://vs857v5gnsar" path="res://3rdparty/kenney/onscreen_controls/transparentDark22.png" id="2_hvksn"]
+[ext_resource type="Texture2D" uid="uid://btund4aka8e25" path="res://3rdparty/kenney/onscreen_controls/transparentDark23.png" id="3_g75nb"]
+[ext_resource type="Texture2D" uid="uid://kt460w3g1epe" path="res://3rdparty/kenney/onscreen_controls/transparentDark25.png" id="4_08mk2"]
+[ext_resource type="Texture2D" uid="uid://b2f5sqepnl2fv" path="res://3rdparty/kenney/onscreen_controls/transparentDark47.png" id="5_0ghj3"]
+[ext_resource type="Texture2D" uid="uid://mimmn644xi5d" path="res://3rdparty/kenney/onscreen_controls/transparentDark43.png" id="6_nmyhp"]
+
+[node name="TouchUI" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [152.0, 1184.0]
+metadata/_edit_horizontal_guides_ = [608.0, 672.0]
+
+[node name="Up" type="TouchScreenButton" parent="."]
+position = Vector2(-527, 143)
+texture_normal = ExtResource("1_rkghi")
+action = "up"
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2(-600, 208)
+texture_normal = ExtResource("2_hvksn")
+action = "left"
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2(-464, 208)
+texture_normal = ExtResource("3_g75nb")
+action = "right"
+
+[node name="Down" type="TouchScreenButton" parent="."]
+position = Vector2(-527, 271)
+texture_normal = ExtResource("4_08mk2")
+action = "down"
+
+[node name="Blelele" type="TouchScreenButton" parent="."]
+position = Vector2(464, 272)
+texture_normal = ExtResource("5_0ghj3")
+action = "blelele"
+
+[node name="Rewind" type="TouchScreenButton" parent="."]
+position = Vector2(544, 208)
+texture_normal = ExtResource("6_nmyhp")
+action = "rewind"
