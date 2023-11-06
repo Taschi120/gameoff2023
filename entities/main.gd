@@ -12,10 +12,12 @@ func _ready() -> void:
 	level.eaten.connect(update_hud)
 	level.moved.connect(update_hud)
 	level.exited.connect(show_end_of_level_dialog)
+	level.tutorial_manager = $TutorialManager
 	snek.trapped.connect(show_stuck_prompt)
 	command_executor.level = $PrototypeLevel
 	command_executor.snek = $PrototypeLevel/Snek
 	snek.command_executor = command_executor
+	level._show_tutorials()
 
 func update_hud() -> void:
 	var level = get_level()

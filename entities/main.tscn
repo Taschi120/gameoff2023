@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4d2q6kgyigmu"]
+[gd_scene load_steps=8 format=3 uid="uid://c4d2q6kgyigmu"]
 
 [ext_resource type="PackedScene" uid="uid://dgaanbbkvl8gm" path="res://prototype/PrototypeLevel.tscn" id="1_3fxte"]
 [ext_resource type="Script" path="res://entities/main.gd" id="1_k5wbg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://entities/commands/CommandExecutor.gd" id="3_2ih3h"]
 [ext_resource type="PackedScene" uid="uid://2x450ojqcueh" path="res://entities/ui/StuckPrompt.tscn" id="6_fmm0r"]
 [ext_resource type="PackedScene" uid="uid://d1dl782jdp3vd" path="res://entities/ui/LevelScoreDialog.tscn" id="7_e13uh"]
+[ext_resource type="PackedScene" uid="uid://x1mhxwavtujg" path="res://entities/ui/tutorials/TutorialManager.tscn" id="7_u82bb"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_k5wbg")
@@ -22,3 +23,5 @@ visible = false
 
 [node name="LevelScoreDialog" parent="." instance=ExtResource("7_e13uh")]
 visible = false
+
+[node name="TutorialManager" parent="." instance=ExtResource("7_u82bb")]

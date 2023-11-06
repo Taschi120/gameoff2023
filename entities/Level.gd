@@ -5,6 +5,8 @@ class_name Level
 @export var starting_direction : Vector2i = Globals.UP
 @export var starting_size := 3
 
+var tutorial_manager : TutorialManager
+
 signal eaten
 signal moved
 signal exited
@@ -100,3 +102,6 @@ func get_score() -> int:
 func get_level_name() -> String:
 	assert(false, "no level name provided")
 	return "Untitled"
+
+func _show_tutorials() -> void:
+	pass # to be overridden in child classes

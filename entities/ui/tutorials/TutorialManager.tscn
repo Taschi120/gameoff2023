@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://x1mhxwavtujg"]
+
+[ext_resource type="Script" path="res://entities/ui/tutorials/TutorialManager.gd" id="1_ef2uc"]
+[ext_resource type="PackedScene" uid="uid://sijdlk2x8un5" path="res://entities/ui/tutorials/BasicControls.tscn" id="2_fa4v4"]
+
+[node name="TutorialManager" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ef2uc")
+
+[node name="BasicControls" parent="." instance=ExtResource("2_fa4v4")]
+layout_mode = 1
