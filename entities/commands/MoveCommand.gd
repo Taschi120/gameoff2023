@@ -5,7 +5,6 @@ class_name MoveCommand
 var to: Vector2i
 
 var previous_snake_state: Array[Vector2i]
-var cheeseboi: bool
 
 func _init(_to: Vector2i) -> void:
 	assert(_to)
@@ -27,15 +26,8 @@ func can_do(level: Level, snek: Snek) -> bool:
 func do(level: Level, snek: Snek) -> void:
 	assert(can_do(level, snek))
 	previous_snake_state = snek.coords.duplicate(true)
-	cheeseboi = level.is_cheeseboi(to)
 	snek.coords.push_front(to)
-	if cheeseboi:
-		level.remove_cheeseboi(to)
-		level.cheesebois_eaten += 1
-		level.eaten.emit()
-	else:
-		# prune snek tail
-		snek.coords.remove_at(snek.coords.size() - 1)
+	snek.prune()
 		
 	level.step_count += 1
 	snek.moved.emit()
@@ -46,11 +38,6 @@ func do(level: Level, snek: Snek) -> void:
 
 func undo(level: Level, snek: Snek) -> void:
 	snek.coords = previous_snake_state.duplicate(true)
-	if cheeseboi:
-		level.add_cheeseboi(to)
-		level.cheesebois_eaten -= 1
-		level.eaten.emit()
-		
 	level.step_count -= 1
 	snek.moved.emit()
 	snek.update_sprites()
@@ -69,6 +56,7 @@ func check_trapped(level: Level, snek: Snek) -> void:
 		print("trapped")
 		snek.trapped.emit()
 		
+# TODO move this into its own command
 func check_victory(level: Level, snek: Snek) -> void:
 	if level.cheesebois_eaten <= 0:
 		return # TODO Message?

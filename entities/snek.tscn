@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck4hcc5lt73ml"]
+[gd_scene load_steps=5 format=3 uid="uid://ck4hcc5lt73ml"]
 
 [ext_resource type="Script" path="res://entities/snek.gd" id="1_fsct2"]
 [ext_resource type="Texture2D" uid="uid://hrj4716gfjlv" path="res://assets/snake-sprites.png" id="2_mua2a"]
 [ext_resource type="AudioStream" uid="uid://8jlqjxnog15r" path="res://3rdparty/kenney/audio/impactSoft_medium_001.ogg" id="3_7vgsd"]
+[ext_resource type="AudioStream" uid="uid://yigkjvf7li2y" path="res://3rdparty/filmcow/bite apple 1.wav" id="4_y4s6y"]
 
 [node name="Snek" type="Node2D"]
 script = ExtResource("1_fsct2")
@@ -20,8 +21,17 @@ frame = 1
 [node name="Smash" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("3_7vgsd")
 
+[node name="Krontsch" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("4_y4s6y")
+
+[node name="Rewind" type="AudioStreamPlayer2D" parent="Sounds"]
+
 [node name="BleleleTimer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
 
+[node name="InputTimer" type="Timer" parent="."]
+wait_time = 0.3
+
 [connection signal="timeout" from="BleleleTimer" to="." method="_on_blelele_timer_timeout"]
+[connection signal="timeout" from="InputTimer" to="." method="_on_input_timer_timeout"]

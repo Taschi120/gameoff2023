@@ -14,6 +14,8 @@ var command_executor: CommandExecutor
 
 var paused := false
 
+var last_tail_position: Vector2i = Vector2i.ZERO
+
 # Snake parts
 var BODY_STRAIGHT := RSprite.new(Vector2i(0,0), "straight")
 var BODY_CORNER := RSprite.new(Vector2i(2, 0), "corner")
@@ -23,26 +25,62 @@ var BLELELE := RSprite.new(Vector2i(1,0), "blelele")
 
 # locations of snake
 var coords: Array[Vector2i]
+
+const MOVE_COOLDOWN = 0.3
+var move_cooldown_timer = 0
 	
 func _input(event: InputEvent) -> void:
 	if paused:
 		return
-		
-	if event.is_action_pressed("up"):
-		try_move_snake(Globals.UP)
-	elif event.is_action_pressed("down"):
-		try_move_snake(Globals.DOWN)
-	elif event.is_action_pressed("left"):
-		try_move_snake(Globals.LEFT)
-	elif event.is_action_pressed("right"):
-		try_move_snake(Globals.RIGHT)
-	elif event.is_action_pressed("rewind"):
-		command_executor.rewind()
 	
 	if event.is_action_pressed("blelele"):
 		$Blelele.visible = true
 		$BleleleTimer.start()
-	
+		
+	handle_movement_input(event)
+
+func handle_movement_input(event: InputEvent) -> void:
+	var now = Engine.get_process_frames()
+
+	var moved = false
+	if event.is_action_pressed("up"):
+		try_move_snake(Globals.UP)
+		moved = true
+	elif event.is_action_pressed("down"):
+		try_move_snake(Globals.DOWN)
+		moved = true
+	elif event.is_action_pressed("left"):
+		try_move_snake(Globals.LEFT)
+		moved = true
+	elif event.is_action_pressed("right"):
+		try_move_snake(Globals.RIGHT)
+		moved = true
+	elif event.is_action_pressed("rewind"):
+		command_executor.rewind()
+		
+	if moved:
+		$InputTimer.start()
+		
+func handle_followup_movement() -> void:
+	var moved = false
+	if Input.is_action_pressed("up"):
+		try_move_snake(Globals.UP)
+		moved = true
+	elif Input.is_action_pressed("down"):
+		try_move_snake(Globals.DOWN)
+		moved = true
+	elif Input.is_action_pressed("left"):
+		try_move_snake(Globals.LEFT)
+		moved = true
+	elif Input.is_action_pressed("right"):
+		try_move_snake(Globals.RIGHT)
+		moved = true
+	elif Input.is_action_pressed("rewind"):
+		command_executor.rewind()
+		moved = true
+		
+	if moved:
+		$InputTimer.start()
 	
 func try_move_snake(direction: Vector2i) -> void:
 	assert(command_executor)
@@ -52,6 +90,10 @@ func try_move_snake(direction: Vector2i) -> void:
 		
 func on_smash():
 	$Sounds/Smash.play()
+	
+func play_food_sound() -> void:
+	print("krontsch")
+	$Sounds/Krontsch.play()
 	
 func update_sprites() -> void:
 	assert(coords.size() >= 3)
@@ -134,6 +176,14 @@ func get_corner_torso_rotation(prev: Vector2i, next: Vector2i) -> int:
 		else:
 			return 270
 	
+func prune() -> void:
+	last_tail_position = coords[coords.size() - 1]
+	coords.remove_at(coords.size() - 1)
+	update_sprites()
+	
+func grow() -> void:
+	coords.push_back(last_tail_position)
+	update_sprites()
 
 func spawn_sprites_if_necessary() -> void:
 	while $Sprites.get_child_count() > coords.size():
@@ -164,3 +214,7 @@ class RSprite:
 
 func _on_blelele_timer_timeout() -> void:
 	$Blelele.visible = false
+
+
+func _on_input_timer_timeout() -> void:
+	handle_followup_movement()

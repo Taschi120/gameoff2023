@@ -22,6 +22,8 @@ var level_name := "Unnamed"
 func _ready() -> void:
 	assert($Snek)
 	assert($TileMap)
+	assert($Mobs)
+	assert($Mobs/Flag)
 	spawn_snake()
 	starting_cheeseboi_count = count_cheesebois()
 	
@@ -40,13 +42,8 @@ func spawn_snake() -> void:
 	snek.eaten.connect(self._on_eaten)
 	
 func find_flag() -> Vector2i:
-	var cells := get_tile_map().get_used_cells(1)
-	for vector in cells:
-		if get_tile_map().get_cell_tile_data(1, vector).get_custom_data("object") == "flag":
-			return vector
-			
-	assert(false)
-	return Vector2i.ZERO
+	var flag = $Mobs/Flag as Flag
+	return flag.coords
 
 func can_move_to(coords: Vector2i) -> bool:
 	var tile = get_tile_map().get_cell_tile_data(0, coords)
@@ -56,41 +53,46 @@ func can_move_to(coords: Vector2i) -> bool:
 		return false
 	
 func is_cheeseboi(coords: Vector2i) -> bool:
-	var tile = get_tile_map().get_cell_tile_data(1, coords)
-	if tile:
-		return tile.get_custom_data("object") == "food"
-	else: 
-		return false
+	for m in $Mobs.get_children():
+		var mob = m as Mob
+		if mob.get_rect().has_point(coords):
+			return true
+			
+	return false
 		
 func count_cheesebois() -> int:
 	var counter = 0
-	var tiles = get_tile_map().get_used_cells(1)
-	for coords in tiles:
-		var tile = get_tile_map().get_cell_tile_data(1, coords)
-		if tile and tile.get_custom_data("object") == "food":
+	for m in $Mobs.get_children():
+		if is_instance_of(m, Cheeseboi):
 			counter += 1
 			
 	return counter
+	
+func get_flag() ->  Flag:
+	return $Mobs/Flag as Flag
 
 func is_exit(coords: Vector2i) -> bool:
-	var tile = get_tile_map().get_cell_tile_data(1, coords)
-	if tile:
-		return tile.get_custom_data("object") == "flag"
-	else: 
-		return false
-	
-func remove_cheeseboi(coords: Vector2i) -> void:
-	get_tile_map().set_cell(1, coords, -1)
-	
-func add_cheeseboi(coords: Vector2i) -> void:
-	get_tile_map().set_cell(1, coords, 3, Vector2i(0,0))
-	
+	return get_flag().coords == coords
+
 func get_tile_map() -> TileMap:
 	assert($TileMap)
 	return $TileMap
 	
 func get_hud() -> HUD:
 	return get_parent().get_node("HUD") as HUD
+	
+func get_mobs() -> Array[Mob]:
+	var result : Array[Mob] = []
+	for mob in $Mobs.get_children():
+		result.append(mob as Mob)
+		
+	return result
+	
+func add_mob(mob: Mob) -> void:
+	$Mobs.add_child(mob)
+	
+func remove_mob(mob: Mob) -> void:
+	$Mobs.remove_child(mob)
 
 func _on_eaten() -> void:
 	eaten.emit()

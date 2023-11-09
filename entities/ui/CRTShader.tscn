@@ -27,6 +27,7 @@ shader_parameter/vignette_intensity = 0.1
 shader_parameter/vignette_opacity = 0.143
 
 [node name="CRTShader" type="ColorRect"]
+visible = false
 material = SubResource("ShaderMaterial_tyypq")
 anchors_preset = 15
 anchor_right = 1.0

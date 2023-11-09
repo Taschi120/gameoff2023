@@ -3,6 +3,7 @@ extends RefCounted
 class_name Globals
 
 const TILE_SIZE = 12
+const TILE_SIZE_2D = Vector2i(TILE_SIZE, TILE_SIZE)
 const TILE_CENTER_OFFSET = Vector2i(TILE_SIZE, TILE_SIZE) / 2
 
 const UP = Vector2i(0, -1)
