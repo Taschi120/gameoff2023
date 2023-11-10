@@ -46,3 +46,5 @@ size = null
 
 [node name="Flag" parent="Mobs" instance=ExtResource("5_qnkpr")]
 position = Vector2(18, 150)
+coords = null
+size = null

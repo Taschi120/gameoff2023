@@ -13,6 +13,10 @@ func _init(_to: Vector2i) -> void:
 
 func can_do(level: Level, snek: Snek) -> bool:
 	assert((snek.coords[0] - to).length() == 1)
+	
+	if snek.paused:
+		return false
+		
 	var tile = level.get_tile_map().get_cell_tile_data(0, to)
 	if tile and tile.get_custom_data("walkable"):
 		var idx = snek.coords.find(to)
@@ -33,7 +37,7 @@ func do(level: Level, snek: Snek) -> void:
 	snek.moved.emit()
 	snek.update_sprites()
 	check_trapped(level, snek)
-	check_victory(level, snek)
+
 	
 
 func undo(level: Level, snek: Snek) -> void:
@@ -55,16 +59,6 @@ func check_trapped(level: Level, snek: Snek) -> void:
 	if stuck:
 		print("trapped")
 		snek.trapped.emit()
-		
-# TODO move this into its own command
-func check_victory(level: Level, snek: Snek) -> void:
-	if level.cheesebois_eaten <= 0:
-		return # TODO Message?
-	if level.is_exit(to):
-		print("At level exit!")
-		level.exited.emit()
-		
-	
-	
+
 func debug_string() -> String:
 	return "MoveCommand(%d, %d)" % [to.x, to.y]

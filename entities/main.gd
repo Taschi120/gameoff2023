@@ -31,7 +31,6 @@ func show_stuck_prompt() -> void:
 	$StuckPrompt.show()
 	
 func show_end_of_level_dialog() -> void:
-	get_snek().paused = true
 	var callback = func(result):
 		print(result)
 	var level = get_level()
