@@ -5,6 +5,7 @@ class_name Snek
 signal moved
 signal eaten
 signal trapped
+signal died
 signal level_exit_hit
 
 var sprite_sheet: Texture = load("res://assets/snake-sprites.png")

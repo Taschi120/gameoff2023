@@ -15,11 +15,18 @@ func _init(_mob: Mob) -> void:
 
 
 func do(level: Level, snek: Snek) -> void:
+	var mobs = level.get_mobs().filter(func(it): it != mob)
 	var tiles = mob.movement.get_tiles(level, snek, mob)
 	for tile in tiles:
+		var theoretical_rect = mob.get_rect()
+		theoretical_rect.position = tile
+		for other in mobs:
+			if theoretical_rect.intersects((other as Mob).get_rect()):
+				return
 		mob.set_coords(tile)
-		if tiles in snek.coords:
+		if tile in snek.coords:
 			return # prevent "quantum tunneling"
+
 	
 func undo(level: Level, snek: Snek) -> void:
 	assert(from)

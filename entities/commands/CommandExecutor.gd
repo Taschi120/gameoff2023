@@ -57,4 +57,4 @@ func rewind() -> void:
 		print("Rewinding command %s" % command.debug_string())
 		command.undo(level, snek)
 		# Rewind until we hit the first user interaction
-		keep_running = command.is_instance_of(AutoTriggeredCommand)
+		keep_running = is_instance_of(command, AutoTriggeredCommand)

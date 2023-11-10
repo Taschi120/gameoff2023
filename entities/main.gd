@@ -6,6 +6,8 @@ class_name MainScene
 @onready var command_executor = $CommandExecutor as CommandExecutor
 @onready var level_score_dialog = $LevelScoreDialog as LevelScoreDialog
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(hud)
@@ -15,7 +17,8 @@ func _ready() -> void:
 	level.moved.connect(update_hud)
 	level.exited.connect(show_end_of_level_dialog)
 	level.tutorial_manager = $TutorialManager
-	snek.trapped.connect(show_stuck_prompt)
+	snek.trapped.connect(func(): show_game_over_prompt(Globals.GameOverCause.STUCK))
+	snek.died.connect(func(): show_game_over_prompt(Globals.GameOverCause.DEAD))
 	command_executor.level = $Level
 	command_executor.snek = $Level/Snek
 	snek.command_executor = command_executor
@@ -27,8 +30,8 @@ func update_hud() -> void:
 	hud.set_cheesebois(level.cheesebois_eaten, level.starting_cheeseboi_count)
 	hud.set_steps(level.step_count)
 
-func show_stuck_prompt() -> void:
-	$StuckPrompt.show()
+func show_game_over_prompt(cause: Globals.GameOverCause) -> void:
+	$StuckPrompt.open(cause)
 	
 func show_end_of_level_dialog() -> void:
 	var callback = func(result):
