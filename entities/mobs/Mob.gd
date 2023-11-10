@@ -1,10 +1,11 @@
-@tool
 extends Node2D
 
 class_name Mob
 
 @export var coords: Vector2i : set = set_coords
 @export var size: Vector2i = Vector2i(1, 1)
+
+@export var movement: MobMovement
 
 func _ready() -> void:
 	# determine cell position based on location

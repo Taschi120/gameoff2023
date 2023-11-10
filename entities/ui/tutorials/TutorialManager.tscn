@@ -15,4 +15,5 @@ grow_vertical = 2
 script = ExtResource("1_ef2uc")
 
 [node name="BasicControls" parent="." instance=ExtResource("2_fa4v4")]
+visible = false
 layout_mode = 1

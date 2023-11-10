@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="NoMobMovement" load_steps=2 format=3 uid="uid://wiixpyahpbxa"]
+
+[ext_resource type="Script" path="res://entities/mobs/NoMobMovement.gd" id="1_p5ok4"]
+
+[resource]
+script = ExtResource("1_p5ok4")

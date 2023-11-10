@@ -29,7 +29,7 @@ func execute(command: Command) -> void:
 			var actions = mob.take_turn(level, snek)
 			for action in actions:
 				assert(is_instance_of(action, AutoTriggeredCommand))
-				execute(command)
+				execute(action)
 				
 		# check for collisions
 		for i in range(snek.coords.size()):

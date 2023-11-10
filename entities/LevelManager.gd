@@ -4,9 +4,17 @@ const LEVELS = [
 	{
 		"id": "Tutorial01",
 		"display_name": "Tutorial 1"
+	},
+	{
+		"id": "Tutorial02",
+		"display_name": "Tutorial 2"
 	}
 ]
 
+func _ready() -> void:
+	for level in LEVELS:
+		assert(level["id"])
+		assert(level["display_name"])
 
 func load_level(data: Dictionary, tree: SceneTree, prev_scene: Node) -> void:
 	var main_screen_resource = load("res://entities/main.tscn")

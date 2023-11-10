@@ -7,8 +7,8 @@ signal eaten
 signal trapped
 signal level_exit_hit
 
-@export var sprite_sheet: Texture = load("res://assets/snake-sprites.png")
-@export var sprite_sheet_size := Vector2i(6, 1)
+var sprite_sheet: Texture = load("res://assets/snake-sprites.png")
+var sprite_sheet_size := Vector2i(6, 1)
 
 var command_executor: CommandExecutor
 
@@ -84,6 +84,7 @@ func handle_followup_movement() -> void:
 	
 func try_move_snake(direction: Vector2i) -> void:
 	assert(command_executor)
+	assert(direction in [Globals.UP, Globals.DOWN, Globals.LEFT, Globals.RIGHT])
 	var command = MoveCommand.new(coords[0] + direction)
 	if command_executor.can_execute(command):
 		command_executor.execute(command)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2p0bc7468uqv"]
+
+[ext_resource type="Script" path="res://entities/mobs/MobSpawner.gd" id="1_bbhyx"]
+[ext_resource type="Texture2D" uid="uid://c1jgyko6o10l1" path="res://assets/spawner.png" id="2_pmif7"]
+[ext_resource type="PackedScene" uid="uid://bu7c5iwc1nhru" path="res://entities/mobs/Car.tscn" id="2_pnir5"]
+[ext_resource type="Script" path="res://entities/mobs/StraightLineMobMovement.gd" id="3_ao1fr"]
+
+[sub_resource type="Resource" id="Resource_eboqk"]
+script = ExtResource("3_ao1fr")
+direction = Vector2i(-1, 0)
+speed = 3
+
+[node name="MobSpawner" type="Node2D"]
+script = ExtResource("1_bbhyx")
+mob_scene = ExtResource("2_pnir5")
+mob_movement = SubResource("Resource_eboqk")
+
+[node name="EditorSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_pmif7")

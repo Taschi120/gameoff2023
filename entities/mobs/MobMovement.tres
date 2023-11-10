@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="MobMovement" load_steps=2 format=3 uid="uid://chvwdwqp2edp1"]
+
+[ext_resource type="Script" path="res://entities/mobs/MobMovement.gd" id="1_rdep4"]
+
+[resource]
+script = ExtResource("1_rdep4")

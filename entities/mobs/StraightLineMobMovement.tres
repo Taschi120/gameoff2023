@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="StraightLineMovement" load_steps=2 format=3 uid="uid://cabmkisrwulaa"]
+
+[ext_resource type="Script" path="res://entities/mobs/StraightLineMobMovement.gd" id="1_hbwia"]
+
+[resource]
+script = ExtResource("1_hbwia")
+direction = Vector2i(0, 0)
+speed = 0

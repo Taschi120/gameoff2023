@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://entities/levels/Tutorial01.gd" id="1_wke6n"]
 [ext_resource type="TileSet" uid="uid://17uqje7b3j2k" path="res://assets/tileset.tres" id="2_inddu"]
 [ext_resource type="PackedScene" uid="uid://ck4hcc5lt73ml" path="res://entities/snek.tscn" id="3_a4qle"]
-[ext_resource type="PackedScene" uid="uid://bv6ogdt0pitut" path="res://entities/Cheeseboi.tscn" id="4_s4w6x"]
-[ext_resource type="PackedScene" uid="uid://bdrm6cwkhmdyg" path="res://entities/Flag.tscn" id="5_qnkpr"]
+[ext_resource type="PackedScene" uid="uid://bv6ogdt0pitut" path="res://entities/mobs/Cheeseboi.tscn" id="4_s4w6x"]
+[ext_resource type="PackedScene" uid="uid://bdrm6cwkhmdyg" path="res://entities/mobs/Flag.tscn" id="5_qnkpr"]
 
 [node name="PrototypeLevel" type="Node2D"]
 scale = Vector2(4, 4)
@@ -46,5 +46,3 @@ size = null
 
 [node name="Flag" parent="Mobs" instance=ExtResource("5_qnkpr")]
 position = Vector2(18, 150)
-coords = null
-size = null

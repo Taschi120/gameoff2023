@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bu7c5iwc1nhru"]
 
-[ext_resource type="Script" path="res://entities/Car.gd" id="1_qnqqe"]
+[ext_resource type="Script" path="res://entities/mobs/Car.gd" id="1_qnqqe"]
 [ext_resource type="Texture2D" uid="uid://d5gcuhd4287t" path="res://3rdparty/modified/urizen_car_1.png" id="2_qpt2w"]
 
 [node name="Car" type="Node2D"]
