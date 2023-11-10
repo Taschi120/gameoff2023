@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://x1mhxwavtujg"]
+[gd_scene load_steps=4 format=3 uid="uid://x1mhxwavtujg"]
 
 [ext_resource type="Script" path="res://entities/ui/tutorials/TutorialManager.gd" id="1_ef2uc"]
 [ext_resource type="PackedScene" uid="uid://sijdlk2x8un5" path="res://entities/ui/tutorials/BasicControls.tscn" id="2_fa4v4"]
+[ext_resource type="PackedScene" uid="uid://xqrkqmjcdfhu" path="res://entities/ui/tutorials/MobTutorial.tscn" id="3_xvmjn"]
 
 [node name="TutorialManager" type="Control"]
 layout_mode = 3
@@ -16,4 +17,7 @@ script = ExtResource("1_ef2uc")
 
 [node name="BasicControls" parent="." instance=ExtResource("2_fa4v4")]
 visible = false
+layout_mode = 1
+
+[node name="Mobs" parent="." instance=ExtResource("3_xvmjn")]
 layout_mode = 1
