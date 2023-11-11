@@ -33,10 +33,6 @@ var move_cooldown_timer = 0
 func _input(event: InputEvent) -> void:
 	if paused:
 		return
-	
-	if event.is_action_pressed("blelele"):
-		$Blelele.visible = true
-		$BleleleTimer.start()
 		
 	handle_movement_input(event)
 
@@ -58,6 +54,9 @@ func handle_movement_input(event: InputEvent) -> void:
 		moved = true
 	elif event.is_action_pressed("rewind"):
 		command_executor.rewind()
+	elif event.is_action_pressed("blelele"):
+		blelele()
+		moved = true
 		
 	if moved:
 		$InputTimer.start()
@@ -79,9 +78,18 @@ func handle_followup_movement() -> void:
 	elif Input.is_action_pressed("rewind"):
 		command_executor.rewind()
 		moved = true
+	elif Input.is_action_pressed("blelele"):
+		blelele()
+		moved = true
 		
 	if moved:
 		$InputTimer.start()
+		
+func blelele() -> void:
+		$BleleleTimer.wait_time = Globals.TURN_LENGTH
+		$Blelele.visible = true
+		$BleleleTimer.start()
+		command_executor.execute(WaitCommand.new())
 	
 func try_move_snake(direction: Vector2i) -> void:
 	assert(command_executor)
