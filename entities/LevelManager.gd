@@ -37,4 +37,4 @@ func load_next_level(current_level_id: String, tree: SceneTree, prev_scene: Node
 		load_level(level_data, tree, prev_scene)
 	else:
 		assert(current_level_id == LEVELS[-1]["id"])
-		# TODO: Jump to end screen
+		tree.change_scene_to_file("res://entities/ui/EndScreen.tscn")

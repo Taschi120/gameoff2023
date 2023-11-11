@@ -47,6 +47,9 @@ func show_end_of_level_dialog() -> void:
 func handle_end_of_level_choice(result: LevelScoreDialog.Result) -> void:
 	if result == LevelScoreDialog.Result.NEXT_LEVEL:
 		LevelManager.load_next_level($Level.level_id, get_tree(), $Level)
+	else:
+		assert(result == LevelScoreDialog.Result.MAIN_MENU)
+		get_tree().change_scene_to_file("res://entities/LevelSelect.tscn")
 		
 func load_level(data: Dictionary) -> void:
 	var scene_resource = load("res://entities/levels/%s.tscn" % data["id"])

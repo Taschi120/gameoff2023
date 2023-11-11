@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdkpmm3pj8dtb"]
+
+[ext_resource type="Theme" uid="uid://dlfpsajfoyq0w" path="res://ui-theme.tres" id="1_alsvx"]
+[ext_resource type="Script" path="res://entities/ui/EndScreen.gd" id="2_dc56t"]
+
+[node name="EndScreen" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_alsvx")
+script = ExtResource("2_dc56t")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 128
+text = "Thanks for playing!"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
