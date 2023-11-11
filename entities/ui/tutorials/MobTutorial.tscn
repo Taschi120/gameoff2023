@@ -77,3 +77,5 @@ layout_mode = 2
 text = "Got it!"
 icon = ExtResource("5_xg8f6")
 icon_alignment = 2
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/ExitButton" to="." method="_on_exit_button_pressed"]
