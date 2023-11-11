@@ -25,7 +25,7 @@ jobs:
       - name: Upload to itch.io
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-        run: butler push win32.zip ratsnakegames/gameoff-2023-wip:win32
+        run: butler push win32.zip ratsnakegames/ratsnek:win32
 
   export-web:
     name: Web Export
@@ -48,4 +48,4 @@ jobs:
       - name: Upload to itch.io
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-        run: butler push web.zip ratsnakegames/gameoff-2023-wip:web
+        run: butler push web.zip ratsnakegames/ratsnek:web
