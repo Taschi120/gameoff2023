@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://co6878smtorhi"]
+
+[ext_resource type="Theme" uid="uid://dlfpsajfoyq0w" path="res://ui-theme.tres" id="1_7ps58"]
+[ext_resource type="Script" path="res://entities/ui/MainMenu.gd" id="2_agtwy"]
+[ext_resource type="Texture2D" uid="uid://bkbp7ntihowja" path="res://assets/dialog-ninefold.png" id="2_kma0f"]
+
+[node name="MainMenu" type="CenterContainer" node_paths=PackedStringArray("thirdparty_text_box")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -25.5
+offset_right = 62.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_7ps58")
+script = ExtResource("2_agtwy")
+thirdparty_license_resource = "res://3rdparty-licenses.txt"
+thirdparty_text_box = NodePath("PanelContainer/MarginContainer/VBoxContainer/TabContainer/Third Party Licenses")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_kma0f")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 26
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 23
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Main Menu"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Info" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/Info"]
+layout_mode = 2
+text = "(c) 2023 Ratsnake Games / S. Hillebrand
+http://ratsnakegames.net
+dev@ratsnakegames.net
+
+All Rights Reserved
+
+Made for GameOff 2023"
+
+[node name="Third Party Licenses" type="TextEdit" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer"]
+custom_minimum_size = Vector2(0, 480)
+layout_mode = 2
+text = "This game uses the following third-party components:
+
+Various CC0-licensed assets by Kenney
+https://kenney.nl / https://kenney.itch.io
+
+One-Bit Tileset by Urizen
+CC0 License
+https://vurmux.itch.io/urizen-onebit-tileset
+
+Sound effects by filmcow
+https://filmcow.itch.io/
+
+Godot Engine
+
+Copyright (c) 2014-present Godot Engine contributors.
+Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-- Godot Engine <https://godotengine.org>
+
+"
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
