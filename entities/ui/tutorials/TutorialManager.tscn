@@ -20,4 +20,5 @@ visible = false
 layout_mode = 1
 
 [node name="Mobs" parent="." instance=ExtResource("3_xvmjn")]
+visible = false
 layout_mode = 1

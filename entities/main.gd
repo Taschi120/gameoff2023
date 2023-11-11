@@ -35,7 +35,7 @@ func show_game_over_prompt(cause: Globals.GameOverCause) -> void:
 	
 func show_end_of_level_dialog() -> void:
 	var callback = func(result):
-		print(result)
+		handle_end_of_level_choice(result)
 	var level = get_level()
 	level_score_dialog.open( \
 		level.get_level_name(), \
@@ -44,6 +44,10 @@ func show_end_of_level_dialog() -> void:
 		level.get_score(), \
 		callback)
 		
+func handle_end_of_level_choice(result: LevelScoreDialog.Result) -> void:
+	if result == LevelScoreDialog.Result.NEXT_LEVEL:
+		LevelManager.load_next_level($Level.level_id, get_tree(), $Level)
+		
 func load_level(data: Dictionary) -> void:
 	var scene_resource = load("res://entities/levels/%s.tscn" % data["id"])
 	var level = scene_resource.instantiate() as Level
@@ -51,6 +55,7 @@ func load_level(data: Dictionary) -> void:
 	remove_child($Level)
 	level.name = "Level"
 	level.level_name = data["display_name"]
+	level.level_id = data["id"]
 	add_child(level)
 	move_child(level, 0)
 	

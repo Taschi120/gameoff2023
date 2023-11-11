@@ -18,6 +18,7 @@ var cheesebois_eaten = 0
 var step_count = 0
 
 var level_name := "Unnamed"
+var level_id := "undefined"
 
 func _ready() -> void:
 	assert($Snek)
