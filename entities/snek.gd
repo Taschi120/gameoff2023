@@ -86,9 +86,7 @@ func handle_followup_movement() -> void:
 		$InputTimer.start()
 		
 func blelele() -> void:
-		$BleleleTimer.wait_time = Globals.TURN_LENGTH
-		$Blelele.visible = true
-		$BleleleTimer.start()
+		$AnimationPlayer.play("tongueflick")
 		command_executor.execute(WaitCommand.new())
 	
 func try_move_snake(direction: Vector2i) -> void:

@@ -1,9 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck4hcc5lt73ml"]
+[gd_scene load_steps=8 format=3 uid="uid://ck4hcc5lt73ml"]
 
 [ext_resource type="Script" path="res://entities/snek.gd" id="1_fsct2"]
-[ext_resource type="Texture2D" uid="uid://hrj4716gfjlv" path="res://assets/snake-sprites.png" id="2_mua2a"]
+[ext_resource type="Texture2D" uid="uid://bqcogb8bfvfsu" path="res://assets/tongueflick.png" id="2_k5xa1"]
 [ext_resource type="AudioStream" uid="uid://8jlqjxnog15r" path="res://3rdparty/kenney/audio/impactSoft_medium_001.ogg" id="3_7vgsd"]
 [ext_resource type="AudioStream" uid="uid://yigkjvf7li2y" path="res://3rdparty/filmcow/bite apple 1.wav" id="4_y4s6y"]
+
+[sub_resource type="Animation" id="Animation_6jjtr"]
+resource_name = "tongueflick"
+length = 0.2
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.16, 0.18, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 4, 3, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_f5lxj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m2d2v"]
+_data = {
+"RESET": SubResource("Animation_f5lxj"),
+"tongueflick": SubResource("Animation_6jjtr")
+}
 
 [node name="Snek" type="Node2D"]
 script = ExtResource("1_fsct2")
@@ -11,10 +49,8 @@ script = ExtResource("1_fsct2")
 [node name="Sprites" type="Node2D" parent="."]
 
 [node name="Blelele" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("2_mua2a")
-hframes = 6
-frame = 1
+texture = ExtResource("2_k5xa1")
+hframes = 5
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -32,6 +68,12 @@ one_shot = true
 
 [node name="InputTimer" type="Timer" parent="."]
 wait_time = 0.3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Blelele")
+libraries = {
+"": SubResource("AnimationLibrary_m2d2v")
+}
 
 [connection signal="timeout" from="BleleleTimer" to="." method="_on_blelele_timer_timeout"]
 [connection signal="timeout" from="InputTimer" to="." method="_on_input_timer_timeout"]
