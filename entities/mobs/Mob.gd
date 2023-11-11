@@ -26,7 +26,13 @@ func contains_point(_coords: Vector2i) -> bool:
 	
 func set_coords(_coords: Vector2i) -> void:
 	coords = _coords
-	position = Vector2((coords * Globals.TILE_SIZE) + Globals.TILE_CENTER_OFFSET)
+	var new_position = Vector2((coords * Globals.TILE_SIZE) + Globals.TILE_CENTER_OFFSET)
+	var tween = self.create_tween()
+	# tween will be null when called from _ready
+	if (tween):
+		tween.tween_property(self, "position", new_position, Globals.TURN_LENGTH)
+	else:
+		position = new_position
 	
 func take_turn(level: Level, snek: Snek) -> Array[AutoTriggeredCommand]:
 	return []
