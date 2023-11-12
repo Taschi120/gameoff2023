@@ -1,4 +1,4 @@
-extends CenterContainer
+extends Node
 
 class_name LevelSelect
 

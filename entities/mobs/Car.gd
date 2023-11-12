@@ -2,6 +2,18 @@ extends Mob
 
 class_name Car
 
+const colors = [
+	Color.RED,
+	Color.SILVER,
+	Color.AQUA,
+	Color.GREEN,
+	Color.YELLOW,
+]
+
+func _ready() -> void:
+	var i = randi_range(0, colors.size() - 1)
+	$Sprite2D.modulate = colors[i]
+
 func take_turn(level: Level, snek: Snek) -> Array[AutoTriggeredCommand]:
 	return [MobMoveCommand.new(self)]
 	
