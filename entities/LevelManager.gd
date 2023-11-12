@@ -3,11 +3,15 @@ extends Node
 const LEVELS = [
 	{
 		"id": "Tutorial01",
-		"display_name": "Tutorial 1"
+		"display_name": "1"
 	},
 	{
 		"id": "Tutorial02",
-		"display_name": "Tutorial 2"
+		"display_name": "2"
+	},
+	{
+		"id": "Level03",
+		"display_name": "3"
 	}
 ]
 
