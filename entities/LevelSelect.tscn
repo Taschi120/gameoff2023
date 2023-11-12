@@ -41,6 +41,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="LevelSelect/HBoxContainer/LevelSelect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(320, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("6_iqre4")
@@ -50,6 +51,7 @@ stretch_mode = 4
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Level Select"
+horizontal_alignment = 1
 
 [node name="CRTShader" parent="LevelSelect" instance=ExtResource("5_oc4gc")]
 custom_minimum_size = Vector2(1280, 720)
