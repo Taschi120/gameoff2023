@@ -67,3 +67,6 @@ func get_level() -> Level:
 	
 func get_snek() -> Snek:
 	return $Level/Snek as Snek
+
+func _on_hud_touch_controls_toggled(value: bool) -> void:
+	$TouchUI.visible = value

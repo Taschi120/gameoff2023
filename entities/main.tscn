@@ -32,3 +32,5 @@ visible = false
 visible = false
 
 [node name="CRTShader" parent="." instance=ExtResource("9_1al12")]
+
+[connection signal="touch_controls_toggled" from="HUD" to="." method="_on_hud_touch_controls_toggled"]
