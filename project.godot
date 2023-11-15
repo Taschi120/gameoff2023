@@ -19,6 +19,7 @@ config/windows_native_icon="res://assets/icon.ico"
 [autoload]
 
 LevelManager="*res://entities/LevelManager.gd"
+Settings="*res://entities/Settings.gd"
 
 [display]
 

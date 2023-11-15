@@ -21,6 +21,11 @@ func _ready() -> void:
 	command_executor.level = $Level
 	command_executor.snek = $Level/Snek
 	snek.command_executor = command_executor
+	
+	if Settings.touch_controls:
+		$TouchUI.visible = true
+		$HUD.set_touch_controls(true)
+		
 	level._show_tutorials()
 
 func update_hud() -> void:
