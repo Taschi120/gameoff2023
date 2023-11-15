@@ -7,7 +7,6 @@ class_name MainScene
 @onready var level_score_dialog = $LevelScoreDialog as LevelScoreDialog
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(hud)
@@ -46,7 +45,7 @@ func show_end_of_level_dialog() -> void:
 		
 func handle_end_of_level_choice(result: LevelScoreDialog.Result) -> void:
 	if result == LevelScoreDialog.Result.NEXT_LEVEL:
-		LevelManager.load_next_level($Level.level_id, get_tree(), $Level)
+		LevelManager.load_next_level($Level.level_id, get_tree(), self)
 	else:
 		assert(result == LevelScoreDialog.Result.MAIN_MENU)
 		get_tree().change_scene_to_file("res://entities/LevelSelect.tscn")
@@ -55,7 +54,9 @@ func load_level(data: Dictionary) -> void:
 	var scene_resource = load("res://entities/levels/%s.tscn" % data["id"])
 	var level = scene_resource.instantiate() as Level
 	assert(level)
-	remove_child($Level)
+	var old = $Level
+	remove_child(old)
+	old.queue_free()
 	level.name = "Level"
 	level.level_name = data["display_name"]
 	level.level_id = data["id"]
