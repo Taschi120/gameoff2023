@@ -1,9 +1,11 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dlfpsajfoyq0w"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dlfpsajfoyq0w"]
 
 [ext_resource type="FontFile" uid="uid://doenevtgwmlfj" path="res://3rdparty/kenney/fonts/Kenney Pixel.ttf" id="1_ofbpe"]
 [ext_resource type="StyleBox" uid="uid://b0waqgms0y75f" path="res://button-style-normal.tres" id="2_513dk"]
 [ext_resource type="Texture2D" uid="uid://c73rm2i1g0f24" path="res://assets/button-nine-pressed.png" id="3_mfj7a"]
+[ext_resource type="Texture2D" uid="uid://b4bxbj1qcbv1f" path="res://assets/button-check.png" id="4_71shg"]
 [ext_resource type="FontFile" uid="uid://3kbfval4g0bh" path="res://3rdparty/kenney/fonts/Kenney Mini Square Mono.ttf" id="4_wiouk"]
+[ext_resource type="Texture2D" uid="uid://5ggabh04loc0" path="res://assets/button-cross.png" id="5_gcpne"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ayp53"]
 texture = ExtResource("3_mfj7a")
@@ -28,6 +30,14 @@ Button/styles/focus = ExtResource("2_513dk")
 Button/styles/hover = ExtResource("2_513dk")
 Button/styles/normal = ExtResource("2_513dk")
 Button/styles/pressed = SubResource("StyleBoxTexture_ayp53")
+CheckBox/font_sizes/font_size = 22
+CheckBox/fonts/font = ExtResource("4_wiouk")
+CheckBox/icons/checked = ExtResource("4_71shg")
+CheckBox/icons/unchecked = ExtResource("5_gcpne")
+CheckButton/font_sizes/font_size = 22
+CheckButton/fonts/font = ExtResource("4_wiouk")
+CheckButton/icons/checked = ExtResource("4_71shg")
+CheckButton/icons/unchecked = ExtResource("5_gcpne")
 Dialog/base_type = &"PanelContainer"
 HeaderLarge/font_sizes/font_size = 52
 HudLabel/base_type = &"Label"

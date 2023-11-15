@@ -30,11 +30,6 @@ layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/StatusBar"]
 layout_mode = 2
-
-[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/StatusBar"]
-layout_mode = 2
-theme = ExtResource("1_t1jlc")
-theme_type_variation = &"HudLabel"
 text = "Touch Controls"
 
 [node name="Label4" type="Label" parent="PanelContainer/MarginContainer/StatusBar"]
