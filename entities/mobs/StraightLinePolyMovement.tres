@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StraightLinePolyMovement" load_steps=2 format=3 uid="uid://6mdxmknmn54f"]
+
+[ext_resource type="Script" path="res://entities/mobs/StraightLinePolyMovement.gd" id="1_ywlhm"]
+
+[resource]
+script = ExtResource("1_ywlhm")
+points = Array[Vector2i]([])
+wait_times = Array[int]([])
+speed = 1
+initial_wait_time = 0

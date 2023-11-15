@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3a0cvbpuq48e"]
+[gd_scene load_steps=8 format=3 uid="uid://d3a0cvbpuq48e"]
 
 [ext_resource type="Script" path="res://entities/levels/Level03.gd" id="1_kop68"]
 [ext_resource type="TileSet" uid="uid://17uqje7b3j2k" path="res://assets/tileset.tres" id="2_e2psw"]
 [ext_resource type="PackedScene" uid="uid://ck4hcc5lt73ml" path="res://entities/snek.tscn" id="3_ysx7h"]
 [ext_resource type="PackedScene" uid="uid://bv6ogdt0pitut" path="res://entities/mobs/Cheeseboi.tscn" id="4_3ptn0"]
 [ext_resource type="PackedScene" uid="uid://bdrm6cwkhmdyg" path="res://entities/mobs/Flag.tscn" id="4_ivbp7"]
+[ext_resource type="Script" path="res://entities/mobs/StraightLinePolyMovement.gd" id="6_5lp4r"]
+
+[sub_resource type="Resource" id="Resource_j14g5"]
+script = ExtResource("6_5lp4r")
+points = Array[Vector2i]([Vector2i(3, 13), Vector2i(3, 2)])
+wait_times = Array[int]([0, 0])
+speed = 1
+initial_wait_time = 0
 
 [node name="Level03" type="Node2D"]
 scale = Vector2(4, 4)
@@ -29,3 +37,7 @@ position = Vector2(258, 150)
 
 [node name="Flag" parent="Mobs" instance=ExtResource("4_ivbp7")]
 position = Vector2(18, 102)
+
+[node name="MovingCheeseboi" parent="Mobs" instance=ExtResource("4_3ptn0")]
+position = Vector2(42, 162)
+movement = SubResource("Resource_j14g5")

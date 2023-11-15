@@ -1,3 +1,0 @@
-extends MobMovement
-
-class_name StraightLineBounceMobMovement

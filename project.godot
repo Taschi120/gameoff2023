@@ -20,6 +20,7 @@ config/windows_native_icon="res://assets/icon.ico"
 
 LevelManager="*res://entities/LevelManager.gd"
 Settings="*res://entities/Settings.gd"
+ShittyVector2i="*res://entities/ShittyVector2i.gd"
 
 [display]
 

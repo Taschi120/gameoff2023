@@ -32,22 +32,15 @@ layer_1/tile_data = PackedInt32Array()
 [node name="Cheeseboi" parent="Mobs" instance=ExtResource("4_s4w6x")]
 position = Vector2(42, 54)
 coords = Vector2i(4, 6)
-size = null
 
 [node name="Cheeseboi2" parent="Mobs" instance=ExtResource("4_s4w6x")]
 position = Vector2(138, 54)
-coords = null
-size = null
 
 [node name="Cheeseboi3" parent="Mobs" instance=ExtResource("4_s4w6x")]
 position = Vector2(186, 102)
-coords = null
-size = null
 
 [node name="Cheeseboi4" parent="Mobs" instance=ExtResource("4_s4w6x")]
 position = Vector2(150, 102)
-coords = null
-size = null
 
 [node name="Flag" parent="Mobs" instance=ExtResource("5_qnkpr")]
 position = Vector2(18, 150)
