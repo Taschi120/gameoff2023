@@ -24,6 +24,7 @@ func execute(command: Command) -> void:
 	stack.append(command)
 	
 	if not is_instance_of(command, AutoTriggeredCommand):
+		collision_check()
 		# let mobs take their turn
 		for mob in level.get_mobs():
 			var actions = mob.take_turn(level, snek)
@@ -31,21 +32,25 @@ func execute(command: Command) -> void:
 				assert(is_instance_of(action, AutoTriggeredCommand))
 				execute(action)
 				
-		# check for collisions
-		for i in range(snek.coords.size()):
-			var coord = snek.coords[i]
-			print("checking collision at %s" % coord)
-			for mob in level.get_mobs():
-				if mob.get_rect().has_point(coord):
-					var triggered_commands: Array[AutoTriggeredCommand]
-					if i == 0:
-						triggered_commands = mob.collide_with_snek_head(level, snek)
-					else:
-						triggered_commands = mob.collide_with_snek_body(level, snek)
-						
-					for triggered_command in triggered_commands:
-						execute(triggered_command)
+		collision_check()
+
+
+
+func collision_check() -> void:
+	# check for collisions
+	for i in range(snek.coords.size()):
+		var coord = snek.coords[i]
+		print("checking collision at %s" % coord)
+		for mob in level.get_mobs():
+			if mob.get_rect().has_point(coord):
+				var triggered_commands: Array[AutoTriggeredCommand]
+				if i == 0:
+					triggered_commands = mob.collide_with_snek_head(level, snek)
+				else:
+					triggered_commands = mob.collide_with_snek_body(level, snek)
 					
+				for triggered_command in triggered_commands:
+					execute(triggered_command)
 
 func rewind() -> void:
 	if stack.is_empty():

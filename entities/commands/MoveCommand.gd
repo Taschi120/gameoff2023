@@ -38,8 +38,6 @@ func do(level: Level, snek: Snek) -> void:
 	snek.update_sprites()
 	check_trapped(level, snek)
 
-	
-
 func undo(level: Level, snek: Snek) -> void:
 	snek.coords = previous_snake_state.duplicate(true)
 	level.step_count -= 1
