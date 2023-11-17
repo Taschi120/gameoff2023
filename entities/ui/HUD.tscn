@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://entities/ui/HUD.gd" id="1_5eujr"]
 [ext_resource type="Theme" uid="uid://dlfpsajfoyq0w" path="res://ui-theme.tres" id="1_t1jlc"]
 [ext_resource type="PackedScene" uid="uid://1bvm7b7kkput" path="res://entities/ui/PanelNinefold.tscn" id="3_j228y"]
-[ext_resource type="Texture2D" uid="uid://c3jhuwfhgn6rh" path="res://assets/cheeseboi.png" id="4_68s81"]
-[ext_resource type="Texture2D" uid="uid://dmdy5ssx1o7j" path="res://assets/clock.png" id="6_t3b7d"]
+[ext_resource type="Texture2D" uid="uid://c3jhuwfhgn6rh" path="res://3rdparty/modified/urizen_cheeseboi.png" id="4_68s81"]
+[ext_resource type="Texture2D" uid="uid://dmdy5ssx1o7j" path="res://3rdparty/modified/urizen_clock.png" id="6_t3b7d"]
 
 [node name="HUD" type="CenterContainer" node_paths=PackedStringArray("cheeseboi_label", "steps_label", "touch_toggle")]
 offset_right = 196.0
@@ -40,6 +40,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("4_68s81")
+stretch_mode = 4
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/StatusBar"]
 layout_mode = 2
@@ -55,6 +56,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("6_t3b7d")
+stretch_mode = 4
 
 [node name="Label2" type="Label" parent="PanelContainer/MarginContainer/StatusBar"]
 custom_minimum_size = Vector2(92, 0)
