@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4d2q6kgyigmu"]
+[gd_scene load_steps=14 format=3 uid="uid://c4d2q6kgyigmu"]
 
 [ext_resource type="PackedScene" uid="uid://dgaanbbkvl8gm" path="res://entities/levels/Level01.tscn" id="1_3fxte"]
 [ext_resource type="Script" path="res://entities/main.gd" id="1_k5wbg"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://sijdlk2x8un5" path="res://entities/ui/tutorials/BasicControls.tscn" id="8_sgq8o"]
 [ext_resource type="PackedScene" uid="uid://c05djtd4u67o7" path="res://entities/ui/CRTShader.tscn" id="9_1al12"]
 [ext_resource type="PackedScene" uid="uid://xqrkqmjcdfhu" path="res://entities/ui/tutorials/MobTutorial.tscn" id="9_o5rpi"]
+[ext_resource type="PackedScene" uid="uid://2nlbsil6sp7y" path="res://entities/ui/tutorials/LockTutorial.tscn" id="10_ocsid"]
 [ext_resource type="PackedScene" uid="uid://d24ii06g1bjxu" path="res://entities/ui/tutorials/TutorialDialog.tscn" id="12_p73ef"]
 
 [node name="Main" type="Node"]
@@ -33,6 +34,7 @@ visible = false
 tutorial_dialog = NodePath("../TutorialDialog")
 basic_control_tutorial = ExtResource("8_sgq8o")
 mob_tutorial = ExtResource("9_o5rpi")
+lock_tutorial = ExtResource("10_ocsid")
 
 [node name="TouchUI" parent="." instance=ExtResource("8_mpj7u")]
 visible = false

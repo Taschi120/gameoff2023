@@ -5,6 +5,7 @@ class_name TutorialManager
 @export var tutorial_dialog : TutorialDialog
 @export var basic_control_tutorial : PackedScene
 @export var mob_tutorial: PackedScene
+@export var lock_tutorial: PackedScene
 
 var current_tutorial : Container = null
 
@@ -13,6 +14,9 @@ func show_basic_controls() -> void:
 
 func show_mob_tutorial() -> void:
 	show_tutorial(mob_tutorial)
+	
+func show_lock_tutorial() -> void:
+	show_tutorial(lock_tutorial)
 	
 func show_tutorial(scene: PackedScene) -> void:
 	assert(scene)

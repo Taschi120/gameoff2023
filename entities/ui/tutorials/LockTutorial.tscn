@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://2nlbsil6sp7y"]
+
+[ext_resource type="Texture2D" uid="uid://bpy6hpxc25oo" path="res://3rdparty/modified/urizen_locked.png" id="1_e835r"]
+
+[node name="Locks" type="VBoxContainer"]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 328.0
+offset_bottom = 178.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "You are small!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+text = "You need to eat before you can scale
+certain obstacles."
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "The number above the"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("1_e835r")
+stretch_mode = 4
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "tells you how"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 2
+text = "long you need to be to pass."
+horizontal_alignment = 1
