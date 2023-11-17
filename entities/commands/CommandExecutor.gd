@@ -55,6 +55,8 @@ func collision_check() -> void:
 func rewind() -> void:
 	if stack.is_empty():
 		return
+	
+	snek.play_rewind_sound()
 		
 	var keep_running = true
 	while keep_running and not stack.is_empty():

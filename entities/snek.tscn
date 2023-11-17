@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ck4hcc5lt73ml"]
+[gd_scene load_steps=10 format=3 uid="uid://ck4hcc5lt73ml"]
 
 [ext_resource type="Script" path="res://entities/snek.gd" id="1_fsct2"]
 [ext_resource type="Texture2D" uid="uid://bqcogb8bfvfsu" path="res://assets/sprites/tongueflick.png" id="2_w1ufr"]
-[ext_resource type="AudioStream" uid="uid://8jlqjxnog15r" path="res://3rdparty/kenney/audio/impactSoft_medium_001.ogg" id="3_7vgsd"]
-[ext_resource type="AudioStream" uid="uid://yigkjvf7li2y" path="res://3rdparty/filmcow/bite apple 1.wav" id="4_y4s6y"]
+[ext_resource type="AudioStream" uid="uid://ct7lt1xx733f1" path="res://assets/sounds/bump.wav" id="3_0w0p8"]
+[ext_resource type="AudioStream" uid="uid://x4wyphadn3td" path="res://assets/sounds/eat.wav" id="4_uak5t"]
+[ext_resource type="AudioStream" uid="uid://n7ek8c0jjhnw" path="res://assets/sounds/ded.wav" id="5_qxnfm"]
+[ext_resource type="AudioStream" uid="uid://c8p4adkj6b6n4" path="res://assets/sounds/blelele.wav" id="6_drbvh"]
 
 [sub_resource type="Animation" id="Animation_f5lxj"]
 length = 0.001
@@ -55,12 +57,18 @@ hframes = 5
 [node name="Sounds" type="Node" parent="."]
 
 [node name="Smash" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("3_7vgsd")
+stream = ExtResource("3_0w0p8")
 
 [node name="Krontsch" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("4_y4s6y")
+stream = ExtResource("4_uak5t")
 
 [node name="Rewind" type="AudioStreamPlayer2D" parent="Sounds"]
+
+[node name="Ded" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("5_qxnfm")
+
+[node name="Blelele" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("6_drbvh")
 
 [node name="BleleleTimer" type="Timer" parent="."]
 wait_time = 0.3

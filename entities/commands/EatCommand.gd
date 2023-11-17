@@ -13,6 +13,7 @@ func do(level: Level, snek: Snek) -> void:
 	level.cheesebois_eaten += 1
 	level.eaten.emit()
 	snek.grow()
+	snek.play_food_sound()
 	
 func undo(level: Level, snek: Snek) -> void:
 	level.add_mob(target)

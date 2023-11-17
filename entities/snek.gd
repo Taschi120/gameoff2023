@@ -86,6 +86,7 @@ func handle_followup_movement() -> void:
 		$InputTimer.start()
 		
 func blelele() -> void:
+		$Sounds/Blelele.play()
 		$AnimationPlayer.play("tongueflick")
 		command_executor.execute(WaitCommand.new())
 	
@@ -95,13 +96,17 @@ func try_move_snake(direction: Vector2i) -> void:
 	var command = MoveCommand.new(coords[0] + direction)
 	if command_executor.can_execute(command):
 		command_executor.execute(command)
-		
-func on_smash():
-	$Sounds/Smash.play()
-	
+	else:
+		$Sounds/Smash.play()
+
 func play_food_sound() -> void:
-	print("krontsch")
 	$Sounds/Krontsch.play()
+	
+func play_rewind_sound() -> void:
+	$Sounds/Rewind.play()
+	
+func play_death_sound() -> void:
+	$Sounds/Ded.play()
 	
 func update_sprites() -> void:
 	assert(coords.size() >= 3)

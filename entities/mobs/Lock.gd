@@ -20,6 +20,9 @@ func _ready() -> void:
 	counter_label.text = str(required_size)
 
 func set_locked(value: bool) -> void:
+	if value == locked:
+		return
+		
 	locked = value
 	if locked:
 		lock_sprite.texture = locked_texture
@@ -31,6 +34,7 @@ func set_locked(value: bool) -> void:
 		make_tween()
 		tween.parallel().tween_property(lock_sprite, "modulate", Color.TRANSPARENT, 0.5)
 		tween.parallel().tween_property(counter_label, "modulate", Color.TRANSPARENT, 0.5)
+		$UnlockAudio.play()
 
 func snek_can_enter() -> bool:
 	return not locked

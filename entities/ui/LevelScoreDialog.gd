@@ -28,6 +28,8 @@ func open(level_name: String, \
 	score_label.text = str(score)
 	
 	visible = true
+	
+	$VictorySound.play()
 
 func _on_next_level_button_pressed() -> void:
 	visible = false
