@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bv6ogdt0pitut"]
 
 [ext_resource type="Script" path="res://entities/mobs/Cheeseboi.gd" id="1_40f6u"]
-[ext_resource type="Texture2D" uid="uid://c3jhuwfhgn6rh" path="res://assets/cheeseboi.png" id="2_oxxds"]
+[ext_resource type="Texture2D" uid="uid://c3jhuwfhgn6rh" path="res://3rdparty/modified/urizen_cheeseboi.png" id="2_oxxds"]
 
 [node name="Cheeseboi" type="Node2D"]
 script = ExtResource("1_40f6u")

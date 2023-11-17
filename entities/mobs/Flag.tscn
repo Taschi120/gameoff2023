@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdrm6cwkhmdyg"]
 
 [ext_resource type="Script" path="res://entities/mobs/Flag.gd" id="1_er0uo"]
-[ext_resource type="Texture2D" uid="uid://mbnq8xe8cj3u" path="res://assets/flag-transparent.png" id="2_5gftv"]
+[ext_resource type="Texture2D" uid="uid://mbnq8xe8cj3u" path="res://3rdparty/modified/urizen_flag_transparent.png" id="2_5gftv"]
 
 [node name="Flag" type="Node2D"]
 script = ExtResource("1_er0uo")
