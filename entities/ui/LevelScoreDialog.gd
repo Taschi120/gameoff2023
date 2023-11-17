@@ -20,7 +20,6 @@ func open(level_name: String, \
 	assert(score_label)
 	
 	assert(_callback)
-	assert(callback == null)
 	callback = _callback
 	
 	header_label.text = "Level %s cleared!" % level_name

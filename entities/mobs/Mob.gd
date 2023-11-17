@@ -33,6 +33,10 @@ func set_coords(_coords: Vector2i) -> void:
 		tween.tween_property(self, "position", new_position, Globals.TURN_LENGTH)
 	else:
 		position = new_position
+		
+# determines if the snake can enter the tile(s) occupied by this mob
+func snek_can_enter() -> bool:
+	return true
 	
 func take_turn(level: Level, snek: Snek) -> Array[AutoTriggeredCommand]:
 	return []

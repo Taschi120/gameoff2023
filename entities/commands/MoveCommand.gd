@@ -23,9 +23,18 @@ func can_do(level: Level, snek: Snek) -> bool:
 		if idx >= 0 and idx != snek.coords.size() - 1:
 			return false
 		else:
-			return true
+			return not is_blocked_by_mob(level)
 	else:
 		return false
+		
+func is_blocked_by_mob(level: Level) -> bool:
+	for mob in level.get_mobs():
+		if mob.contains_point(to):
+			if not mob.snek_can_enter():
+				return true
+				
+	return false
+	
 
 func do(level: Level, snek: Snek) -> void:
 	assert(can_do(level, snek))

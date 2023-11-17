@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjsfquixjqdbh"]
+
+[ext_resource type="Script" path="res://entities/mobs/Lock.gd" id="1_l83wo"]
+[ext_resource type="Texture2D" uid="uid://bpy6hpxc25oo" path="res://3rdparty/modified/urizen_locked.png" id="2_hh5ys"]
+[ext_resource type="Texture2D" uid="uid://b6xoxxjxn1tob" path="res://3rdparty/modified/urizen_unlocked.png" id="3_820db"]
+[ext_resource type="FontFile" uid="uid://doenevtgwmlfj" path="res://3rdparty/kenney/fonts/Kenney Pixel.ttf" id="4_ccm1h"]
+
+[node name="Lock" type="Node2D"]
+script = ExtResource("1_l83wo")
+locked_texture = ExtResource("2_hh5ys")
+unlocked_texture = ExtResource("3_820db")
+
+[node name="LockSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_hh5ys")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -23.0
+offset_right = 21.0
+theme_override_fonts/font = ExtResource("4_ccm1h")
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
