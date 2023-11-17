@@ -2,11 +2,11 @@ extends Node
 
 const LEVELS = [
 	{
-		"id": "Tutorial01",
+		"id": "Level01",
 		"display_name": "1"
 	},
 	{
-		"id": "Tutorial02",
+		"id": "Level02",
 		"display_name": "2"
 	},
 	{

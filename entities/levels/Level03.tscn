@@ -45,3 +45,4 @@ movement = SubResource("Resource_j14g5")
 
 [node name="Lock" parent="Mobs" instance=ExtResource("7_68wss")]
 position = Vector2(162, 102)
+required_size = 5

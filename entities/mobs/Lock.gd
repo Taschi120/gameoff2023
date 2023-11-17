@@ -15,6 +15,9 @@ var locked = true : set = set_locked
 
 var tween : Tween = null
 
+func _ready() -> void:
+	counter_label.text = str(required_size)
+
 func set_locked(value: bool) -> void:
 	locked = value
 	if locked:

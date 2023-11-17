@@ -1,18 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://dgaanbbkvl8gm"]
 
-[ext_resource type="Script" path="res://entities/levels/Tutorial01.gd" id="1_wke6n"]
-[ext_resource type="TileSet" uid="uid://17uqje7b3j2k" path="res://assets/tileset.tres" id="2_inddu"]
-[ext_resource type="PackedScene" uid="uid://ck4hcc5lt73ml" path="res://entities/snek.tscn" id="3_a4qle"]
-[ext_resource type="PackedScene" uid="uid://bv6ogdt0pitut" path="res://entities/mobs/Cheeseboi.tscn" id="4_s4w6x"]
-[ext_resource type="PackedScene" uid="uid://bdrm6cwkhmdyg" path="res://entities/mobs/Flag.tscn" id="5_qnkpr"]
+[ext_resource type="Script" path="res://entities/levels/Level01.gd" id="1_vddl1"]
+[ext_resource type="TileSet" uid="uid://17uqje7b3j2k" path="res://assets/tileset.tres" id="2_6fsd6"]
+[ext_resource type="PackedScene" uid="uid://ck4hcc5lt73ml" path="res://entities/snek.tscn" id="3_fyg4a"]
+[ext_resource type="PackedScene" uid="uid://bv6ogdt0pitut" path="res://entities/mobs/Cheeseboi.tscn" id="4_nvc42"]
+[ext_resource type="PackedScene" uid="uid://bdrm6cwkhmdyg" path="res://entities/mobs/Flag.tscn" id="5_bwxup"]
 
 [node name="PrototypeLevel" type="Node2D"]
 scale = Vector2(4, 4)
-script = ExtResource("1_wke6n")
-starting_direction = Vector2i(1, 0)
+script = ExtResource("1_vddl1")
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("2_inddu")
+tile_set = ExtResource("2_6fsd6")
 cell_quadrant_size = 12
 format = 2
 layer_0/name = "background"
@@ -25,22 +24,22 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 
-[node name="Snek" parent="." instance=ExtResource("3_a4qle")]
+[node name="Snek" parent="." instance=ExtResource("3_fyg4a")]
 
 [node name="Mobs" type="Node2D" parent="."]
 
-[node name="Cheeseboi" parent="Mobs" instance=ExtResource("4_s4w6x")]
+[node name="Cheeseboi" parent="Mobs" instance=ExtResource("4_nvc42")]
 position = Vector2(42, 54)
 coords = Vector2i(4, 6)
 
-[node name="Cheeseboi2" parent="Mobs" instance=ExtResource("4_s4w6x")]
+[node name="Cheeseboi2" parent="Mobs" instance=ExtResource("4_nvc42")]
 position = Vector2(138, 54)
 
-[node name="Cheeseboi3" parent="Mobs" instance=ExtResource("4_s4w6x")]
+[node name="Cheeseboi3" parent="Mobs" instance=ExtResource("4_nvc42")]
 position = Vector2(186, 102)
 
-[node name="Cheeseboi4" parent="Mobs" instance=ExtResource("4_s4w6x")]
+[node name="Cheeseboi4" parent="Mobs" instance=ExtResource("4_nvc42")]
 position = Vector2(150, 102)
 
-[node name="Flag" parent="Mobs" instance=ExtResource("5_qnkpr")]
+[node name="Flag" parent="Mobs" instance=ExtResource("5_bwxup")]
 position = Vector2(18, 150)
