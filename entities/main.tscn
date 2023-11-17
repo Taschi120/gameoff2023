@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4d2q6kgyigmu"]
+[gd_scene load_steps=13 format=3 uid="uid://c4d2q6kgyigmu"]
 
 [ext_resource type="PackedScene" uid="uid://dgaanbbkvl8gm" path="res://entities/levels/Level01.tscn" id="1_3fxte"]
 [ext_resource type="Script" path="res://entities/main.gd" id="1_k5wbg"]
@@ -8,7 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://d1dl782jdp3vd" path="res://entities/ui/LevelScoreDialog.tscn" id="7_e13uh"]
 [ext_resource type="PackedScene" uid="uid://x1mhxwavtujg" path="res://entities/ui/tutorials/TutorialManager.tscn" id="7_u82bb"]
 [ext_resource type="PackedScene" uid="uid://1igh4oymg6lh" path="res://entities/ui/TouchUI.tscn" id="8_mpj7u"]
+[ext_resource type="PackedScene" uid="uid://sijdlk2x8un5" path="res://entities/ui/tutorials/BasicControls.tscn" id="8_sgq8o"]
 [ext_resource type="PackedScene" uid="uid://c05djtd4u67o7" path="res://entities/ui/CRTShader.tscn" id="9_1al12"]
+[ext_resource type="PackedScene" uid="uid://xqrkqmjcdfhu" path="res://entities/ui/tutorials/MobTutorial.tscn" id="9_o5rpi"]
+[ext_resource type="PackedScene" uid="uid://d24ii06g1bjxu" path="res://entities/ui/tutorials/TutorialDialog.tscn" id="12_p73ef"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_k5wbg")
@@ -26,11 +29,26 @@ visible = false
 [node name="LevelScoreDialog" parent="." instance=ExtResource("7_e13uh")]
 visible = false
 
-[node name="TutorialManager" parent="." instance=ExtResource("7_u82bb")]
+[node name="TutorialManager" parent="." node_paths=PackedStringArray("tutorial_dialog") instance=ExtResource("7_u82bb")]
+tutorial_dialog = NodePath("../TutorialDialog")
+basic_control_tutorial = ExtResource("8_sgq8o")
+mob_tutorial = ExtResource("9_o5rpi")
 
 [node name="TouchUI" parent="." instance=ExtResource("8_mpj7u")]
 visible = false
 
 [node name="CRTShader" parent="." instance=ExtResource("9_1al12")]
+
+[node name="TutorialDialog" parent="." instance=ExtResource("12_p73ef")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -46.0
+offset_right = 158.0
+offset_bottom = 46.0
 
 [connection signal="touch_controls_toggled" from="HUD" to="." method="_on_hud_touch_controls_toggled"]
