@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpw8yxxhox87g"
-path="res://.godot/imported/logo-small.png-7a34f7cc8ec316e1020174869a87eb82.ctex"
+uid="uid://b1quueomgeopq"
+path="res://.godot/imported/urizen_flag.png-6509d559db7de121fa218f2579b10a2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/logo-small.png"
-dest_files=["res://.godot/imported/logo-small.png-7a34f7cc8ec316e1020174869a87eb82.ctex"]
+source_file="res://3rdparty/modified/urizen_flag.png"
+dest_files=["res://.godot/imported/urizen_flag.png-6509d559db7de121fa218f2579b10a2f.ctex"]
 
 [params]
 

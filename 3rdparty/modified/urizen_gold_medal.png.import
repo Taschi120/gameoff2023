@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4bxbj1qcbv1f"
-path="res://.godot/imported/button-check.png-d730891e9d17f047a524c6bca42ed085.ctex"
+uid="uid://dybglw2mm0wen"
+path="res://.godot/imported/urizen_gold_medal.png-a761893677900212a24d634f1d6dc19c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/button-check.png"
-dest_files=["res://.godot/imported/button-check.png-d730891e9d17f047a524c6bca42ed085.ctex"]
+source_file="res://3rdparty/modified/urizen_gold_medal.png"
+dest_files=["res://.godot/imported/urizen_gold_medal.png-a761893677900212a24d634f1d6dc19c.ctex"]
 
 [params]
 

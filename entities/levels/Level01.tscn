@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dgaanbbkvl8gm"]
 
 [ext_resource type="Script" path="res://entities/levels/Level01.gd" id="1_vddl1"]
-[ext_resource type="TileSet" uid="uid://17uqje7b3j2k" path="res://assets/tileset.tres" id="2_6fsd6"]
+[ext_resource type="TileSet" uid="uid://17uqje7b3j2k" path="res://assets/sprites/tileset.tres" id="2_vtfl8"]
 [ext_resource type="PackedScene" uid="uid://ck4hcc5lt73ml" path="res://entities/snek.tscn" id="3_fyg4a"]
 [ext_resource type="PackedScene" uid="uid://bv6ogdt0pitut" path="res://entities/mobs/Cheeseboi.tscn" id="4_nvc42"]
 [ext_resource type="PackedScene" uid="uid://bdrm6cwkhmdyg" path="res://entities/mobs/Flag.tscn" id="5_bwxup"]
@@ -11,7 +11,7 @@ scale = Vector2(4, 4)
 script = ExtResource("1_vddl1")
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("2_6fsd6")
+tile_set = ExtResource("2_vtfl8")
 cell_quadrant_size = 12
 format = 2
 layer_0/name = "background"

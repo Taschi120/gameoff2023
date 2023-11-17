@@ -8,7 +8,7 @@ signal trapped
 signal died
 signal level_exit_hit
 
-var sprite_sheet: Texture = load("res://assets/snake-sprites.png")
+var sprite_sheet: Texture = load("res://assets/sprites/snake-sprites.png")
 var sprite_sheet_size := Vector2i(6, 1)
 
 var command_executor: CommandExecutor

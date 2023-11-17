@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ck4hcc5lt73ml"]
 
 [ext_resource type="Script" path="res://entities/snek.gd" id="1_fsct2"]
-[ext_resource type="Texture2D" uid="uid://bqcogb8bfvfsu" path="res://assets/tongueflick.png" id="2_k5xa1"]
+[ext_resource type="Texture2D" uid="uid://bqcogb8bfvfsu" path="res://assets/sprites/tongueflick.png" id="2_w1ufr"]
 [ext_resource type="AudioStream" uid="uid://8jlqjxnog15r" path="res://3rdparty/kenney/audio/impactSoft_medium_001.ogg" id="3_7vgsd"]
 [ext_resource type="AudioStream" uid="uid://yigkjvf7li2y" path="res://3rdparty/filmcow/bite apple 1.wav" id="4_y4s6y"]
 
@@ -49,7 +49,7 @@ script = ExtResource("1_fsct2")
 [node name="Sprites" type="Node2D" parent="."]
 
 [node name="Blelele" type="Sprite2D" parent="."]
-texture = ExtResource("2_k5xa1")
+texture = ExtResource("2_w1ufr")
 hframes = 5
 
 [node name="Sounds" type="Node" parent="."]

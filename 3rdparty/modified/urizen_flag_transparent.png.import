@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqcogb8bfvfsu"
-path="res://.godot/imported/tongueflick.png-3734b2a85c8f0c171b8039e0adfad1ab.ctex"
+uid="uid://mbnq8xe8cj3u"
+path="res://.godot/imported/urizen_flag_transparent.png-4c9d8afb7a472eac4c641e5be13c3927.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tongueflick.png"
-dest_files=["res://.godot/imported/tongueflick.png-3734b2a85c8f0c171b8039e0adfad1ab.ctex"]
+source_file="res://3rdparty/modified/urizen_flag_transparent.png"
+dest_files=["res://.godot/imported/urizen_flag_transparent.png-4c9d8afb7a472eac4c641e5be13c3927.ctex"]
 
 [params]
 

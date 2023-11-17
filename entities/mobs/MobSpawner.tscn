@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2p0bc7468uqv"]
 
 [ext_resource type="Script" path="res://entities/mobs/MobSpawner.gd" id="1_bbhyx"]
-[ext_resource type="Texture2D" uid="uid://c1jgyko6o10l1" path="res://assets/spawner.png" id="2_pmif7"]
+[ext_resource type="Texture2D" uid="uid://c1jgyko6o10l1" path="res://assets/sprites/spawner.png" id="2_pmif7"]
 [ext_resource type="PackedScene" uid="uid://bu7c5iwc1nhru" path="res://entities/mobs/Car.tscn" id="2_pnir5"]
 [ext_resource type="Script" path="res://entities/mobs/StraightLineMobMovement.gd" id="3_ao1fr"]
 

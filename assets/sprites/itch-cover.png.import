@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gmdx5p0hjsuj"
-path="res://.godot/imported/button-nine.png-7ecd87b8cfc9209050de0a8fcf5b134e.ctex"
+uid="uid://dyuf3txe1wsn0"
+path="res://.godot/imported/itch-cover.png-fcc4e1135247bf0f63bfb5961e2babd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/button-nine.png"
-dest_files=["res://.godot/imported/button-nine.png-7ecd87b8cfc9209050de0a8fcf5b134e.ctex"]
+source_file="res://assets/sprites/itch-cover.png"
+dest_files=["res://.godot/imported/itch-cover.png-fcc4e1135247bf0f63bfb5961e2babd2.ctex"]
 
 [params]
 

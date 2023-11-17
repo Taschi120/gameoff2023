@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ks61sv6ixcfx"
-path="res://.godot/imported/1bit-tiles.png-2f6917f4a4392201bc9aea5c1051d1ad.ctex"
+uid="uid://dql3hwv2na54a"
+path="res://.godot/imported/urizen_boot.png-6530cd10532d30d5036665b3ab69f070.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/1bit-tiles.png"
-dest_files=["res://.godot/imported/1bit-tiles.png-2f6917f4a4392201bc9aea5c1051d1ad.ctex"]
+source_file="res://3rdparty/modified/urizen_boot.png"
+dest_files=["res://.godot/imported/urizen_boot.png-6530cd10532d30d5036665b3ab69f070.ctex"]
 
 [params]
 

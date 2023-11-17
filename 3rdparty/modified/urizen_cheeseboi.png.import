@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1jgyko6o10l1"
-path="res://.godot/imported/spawner.png-d7cc71a38a23c8c40c435efe361ba5f6.ctex"
+uid="uid://c3jhuwfhgn6rh"
+path="res://.godot/imported/urizen_cheeseboi.png-1463b6b263156c320fe140c04ba4947b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spawner.png"
-dest_files=["res://.godot/imported/spawner.png-d7cc71a38a23c8c40c435efe361ba5f6.ctex"]
+source_file="res://3rdparty/modified/urizen_cheeseboi.png"
+dest_files=["res://.godot/imported/urizen_cheeseboi.png-1463b6b263156c320fe140c04ba4947b.ctex"]
 
 [params]
 

@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://co6878smtorhi"]
+[gd_scene load_steps=3 format=3 uid="uid://co6878smtorhi"]
 
 [ext_resource type="Theme" uid="uid://dlfpsajfoyq0w" path="res://ui-theme.tres" id="1_7ps58"]
 [ext_resource type="Script" path="res://entities/ui/MainMenu.gd" id="2_agtwy"]
-[ext_resource type="Texture2D" uid="uid://bkbp7ntihowja" path="res://assets/dialog-ninefold.png" id="2_kma0f"]
 
 [node name="MainMenu" type="CenterContainer" node_paths=PackedStringArray("thirdparty_text_box")]
 anchors_preset = 8
@@ -28,7 +27,6 @@ layout_mode = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer"]
 layout_mode = 2
-texture = ExtResource("2_kma0f")
 region_rect = Rect2(0, 0, 32, 32)
 patch_margin_left = 26
 patch_margin_top = 24

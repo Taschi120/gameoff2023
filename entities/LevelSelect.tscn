@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbg1yyfer1qm"]
 
 [ext_resource type="Theme" uid="uid://dlfpsajfoyq0w" path="res://ui-theme.tres" id="1_hhh4w"]
-[ext_resource type="TileSet" uid="uid://17uqje7b3j2k" path="res://assets/tileset.tres" id="1_x7xpl"]
+[ext_resource type="TileSet" uid="uid://17uqje7b3j2k" path="res://assets/sprites/tileset.tres" id="1_x7xpl"]
 [ext_resource type="Script" path="res://entities/LevelSelect.gd" id="2_23swd"]
 [ext_resource type="PackedScene" uid="uid://1bvm7b7kkput" path="res://entities/ui/PanelNinefold.tscn" id="4_rn0tj"]
 [ext_resource type="PackedScene" uid="uid://c05djtd4u67o7" path="res://entities/ui/CRTShader.tscn" id="5_oc4gc"]
-[ext_resource type="Texture2D" uid="uid://bothpq3806pu" path="res://assets/logo.png" id="6_iqre4"]
+[ext_resource type="Texture2D" uid="uid://bothpq3806pu" path="res://assets/sprites/logo.png" id="6_iqre4"]
 
 [node name="LevelSelectRoot" type="Node" node_paths=PackedStringArray("level_button_container")]
 script = ExtResource("2_23swd")
