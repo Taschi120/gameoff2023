@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://co6878smtorhi"]
+[gd_scene load_steps=4 format=3 uid="uid://co6878smtorhi"]
 
 [ext_resource type="Theme" uid="uid://dlfpsajfoyq0w" path="res://ui-theme.tres" id="1_7ps58"]
 [ext_resource type="Script" path="res://entities/ui/MainMenu.gd" id="2_agtwy"]
+[ext_resource type="PackedScene" uid="uid://1bvm7b7kkput" path="res://entities/ui/PanelNinefold.tscn" id="3_nv6jr"]
 
 [node name="MainMenu" type="CenterContainer" node_paths=PackedStringArray("thirdparty_text_box")]
 anchors_preset = 8
@@ -20,18 +21,13 @@ size_flags_vertical = 4
 theme = ExtResource("1_7ps58")
 script = ExtResource("2_agtwy")
 thirdparty_license_resource = "res://3rdparty-licenses.txt"
-thirdparty_text_box = NodePath("PanelContainer/MarginContainer/VBoxContainer/TabContainer/Third Party Licenses")
+thirdparty_text_box = NodePath("PanelContainer/MarginContainer/VBoxContainer/Third Party Licenses")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer"]
+[node name="PanelNinepatch" parent="PanelContainer" instance=ExtResource("3_nv6jr")]
 layout_mode = 2
-region_rect = Rect2(0, 0, 32, 32)
-patch_margin_left = 26
-patch_margin_top = 24
-patch_margin_right = 24
-patch_margin_bottom = 23
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 custom_minimum_size = Vector2(720, 480)
@@ -43,16 +39,10 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
-text = "Main Menu"
+text = "Info"
 horizontal_alignment = 1
 
-[node name="TabContainer" type="TabContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Info" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/Info"]
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "(c) 2023 Ratsnake Games / S. Hillebrand
 http://ratsnakegames.net
@@ -62,9 +52,8 @@ All Rights Reserved
 
 Made for GameOff 2023"
 
-[node name="Third Party Licenses" type="TextEdit" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 480)
+[node name="Third Party Licenses" type="TextEdit" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 200)
 layout_mode = 2
 text = "This game uses the following third-party components:
 
@@ -74,9 +63,6 @@ https://kenney.nl / https://kenney.itch.io
 One-Bit Tileset by Urizen
 CC0 License
 https://vurmux.itch.io/urizen-onebit-tileset
-
-Sound effects by filmcow
-https://filmcow.itch.io/
 
 Godot Engine
 
