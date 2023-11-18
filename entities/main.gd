@@ -8,7 +8,6 @@ class_name MainScene
 @onready var level_selection_confirm_dialog := $LevelSelectConfirmationDialog \
 	as LevelSelectionConfirmationDialog
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(hud)
 	var snek = $Level/Snek as Snek
