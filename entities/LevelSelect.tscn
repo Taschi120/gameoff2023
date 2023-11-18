@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbg1yyfer1qm"]
+[gd_scene load_steps=9 format=3 uid="uid://cbg1yyfer1qm"]
 
 [ext_resource type="Theme" uid="uid://dlfpsajfoyq0w" path="res://ui-theme.tres" id="1_hhh4w"]
 [ext_resource type="TileSet" uid="uid://17uqje7b3j2k" path="res://assets/sprites/tileset.tres" id="1_x7xpl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://1bvm7b7kkput" path="res://entities/ui/PanelNinefold.tscn" id="4_rn0tj"]
 [ext_resource type="PackedScene" uid="uid://c05djtd4u67o7" path="res://entities/ui/CRTShader.tscn" id="5_oc4gc"]
 [ext_resource type="Texture2D" uid="uid://bothpq3806pu" path="res://assets/sprites/logo.png" id="6_iqre4"]
+[ext_resource type="Texture2D" uid="uid://chtw7keif2nwu" path="res://3rdparty/modified/urizen_i.png" id="7_gge8s"]
 [ext_resource type="PackedScene" uid="uid://co6878smtorhi" path="res://entities/ui/MainMenu.tscn" id="7_slgoq"]
 
 [node name="LevelSelectRoot" type="Node" node_paths=PackedStringArray("level_button_container")]
@@ -68,7 +69,9 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme = ExtResource("1_hhh4w")
 theme_override_font_sizes/font_size = 48
-text = "?"
+icon = ExtResource("7_gge8s")
+icon_alignment = 1
+expand_icon = true
 
 [node name="MainMenu" parent="." instance=ExtResource("7_slgoq")]
 visible = false
