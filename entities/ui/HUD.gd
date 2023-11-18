@@ -7,6 +7,7 @@ class_name HUD
 @export var touch_toggle: CheckBox
 
 signal touch_controls_toggled
+signal exit_button_pressed
 
 func _ready() -> void:
 	assert(cheeseboi_label)
@@ -24,3 +25,7 @@ func set_touch_controls(value: bool) -> void:
 func _on_check_box_toggled(button_pressed: bool) -> void:
 	Settings.touch_controls = button_pressed
 	touch_controls_toggled.emit(button_pressed)
+
+
+func _on_exit_button_pressed() -> void:
+	exit_button_pressed.emit()

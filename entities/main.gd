@@ -2,10 +2,11 @@ extends Node
 
 class_name MainScene
 
-@onready var hud = $HUD as HUD
-@onready var command_executor = $CommandExecutor as CommandExecutor
-@onready var level_score_dialog = $LevelScoreDialog as LevelScoreDialog
-
+@onready var hud := $HUD as HUD
+@onready var command_executor := $CommandExecutor as CommandExecutor
+@onready var level_score_dialog := $LevelScoreDialog as LevelScoreDialog
+@onready var level_selection_confirm_dialog := $LevelSelectConfirmationDialog \
+	as LevelSelectionConfirmationDialog
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -53,6 +54,7 @@ func handle_end_of_level_choice(result: LevelScoreDialog.Result) -> void:
 		LevelManager.load_next_level($Level.level_id, get_tree(), self)
 	else:
 		assert(result == LevelScoreDialog.Result.MAIN_MENU)
+		self.queue_free()
 		get_tree().change_scene_to_file("res://entities/LevelSelect.tscn")
 		
 func load_level(data: Dictionary) -> void:
@@ -76,3 +78,15 @@ func get_snek() -> Snek:
 
 func _on_hud_touch_controls_toggled(value: bool) -> void:
 	$TouchUI.visible = value
+
+func _on_hud_exit_button_pressed() -> void:
+	get_snek().paused = true
+	level_selection_confirm_dialog.visible = true
+
+func _on_level_select_confirmation_dialog_cancelled() -> void:
+	get_snek().paused = false
+	level_selection_confirm_dialog.visible = false
+
+func _on_level_select_confirmation_dialog_confirmed() -> void:
+	self.queue_free()
+	get_tree().change_scene_to_file("res://entities/LevelSelect.tscn")

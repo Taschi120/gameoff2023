@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjmg2xrly13sq"]
+[gd_scene load_steps=7 format=3 uid="uid://cjmg2xrly13sq"]
 
 [ext_resource type="Script" path="res://entities/ui/HUD.gd" id="1_5eujr"]
 [ext_resource type="Theme" uid="uid://dlfpsajfoyq0w" path="res://ui-theme.tres" id="1_t1jlc"]
 [ext_resource type="PackedScene" uid="uid://1bvm7b7kkput" path="res://entities/ui/PanelNinefold.tscn" id="3_j228y"]
 [ext_resource type="Texture2D" uid="uid://c3jhuwfhgn6rh" path="res://3rdparty/modified/urizen_cheeseboi.png" id="4_68s81"]
+[ext_resource type="Texture2D" uid="uid://csrybdudwnwef" path="res://3rdparty/modified/urizen_exit.png" id="4_wplyn"]
 [ext_resource type="Texture2D" uid="uid://dmdy5ssx1o7j" path="res://3rdparty/modified/urizen_clock.png" id="6_t3b7d"]
 
 [node name="HUD" type="CenterContainer" node_paths=PackedStringArray("cheeseboi_label", "steps_label", "touch_toggle")]
@@ -13,7 +14,7 @@ theme = ExtResource("1_t1jlc")
 script = ExtResource("1_5eujr")
 cheeseboi_label = NodePath("PanelContainer/MarginContainer/StatusBar/Label")
 steps_label = NodePath("PanelContainer/MarginContainer/StatusBar/Label2")
-touch_toggle = NodePath("PanelContainer/MarginContainer/StatusBar/CheckBox")
+touch_toggle = NodePath("PanelContainer/MarginContainer/StatusBar/TouchControlsCheckbox")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -28,7 +29,14 @@ size_flags_horizontal = 4
 [node name="StatusBar" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/StatusBar"]
+[node name="ExitButton" type="Button" parent="PanelContainer/MarginContainer/StatusBar"]
+layout_mode = 2
+theme = ExtResource("1_t1jlc")
+theme_type_variation = &"HudButton"
+text = "Exit"
+icon = ExtResource("4_wplyn")
+
+[node name="TouchControlsCheckbox" type="CheckBox" parent="PanelContainer/MarginContainer/StatusBar"]
 layout_mode = 2
 text = "Touch Controls"
 
@@ -66,4 +74,5 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[connection signal="toggled" from="PanelContainer/MarginContainer/StatusBar/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/StatusBar/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/StatusBar/TouchControlsCheckbox" to="." method="_on_check_box_toggled"]
