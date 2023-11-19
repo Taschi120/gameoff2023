@@ -21,8 +21,8 @@ func get_rect() -> Rect2i:
 	return Rect2i(coords, size)
 	
 func contains_point(_coords: Vector2i) -> bool:
-	return _coords.x >= coords.x and _coords.x <= coords.x + size.x and \
-		_coords.y >= coords.y and _coords.y <= coords.y + size.y
+	return _coords.x >= coords.x and _coords.x < coords.x + size.x and \
+		_coords.y >= coords.y and _coords.y < coords.y + size.y
 	
 func set_coords(_coords: Vector2i) -> void:
 	coords = _coords

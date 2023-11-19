@@ -11,7 +11,7 @@
 
 [node name="LevelSelectRoot" type="Node" node_paths=PackedStringArray("level_button_container")]
 script = ExtResource("2_23swd")
-level_button_container = NodePath("LevelSelect/HBoxContainer/LevelSelect/MarginContainer/VBoxContainer")
+level_button_container = NodePath("LevelSelect/HBoxContainer/LevelSelect/MarginContainer/VBoxContainer/CenterContainer/LevelButtonContainer")
 
 [node name="LevelSelect" type="CenterContainer" parent="."]
 anchors_preset = 15
@@ -54,6 +54,13 @@ layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Level Select"
 horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="LevelSelect/HBoxContainer/LevelSelect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LevelButtonContainer" type="GridContainer" parent="LevelSelect/HBoxContainer/LevelSelect/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+columns = 4
 
 [node name="CRTShader" parent="LevelSelect" instance=ExtResource("5_oc4gc")]
 custom_minimum_size = Vector2(1280, 720)

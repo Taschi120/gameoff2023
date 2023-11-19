@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://co6878smtorhi"]
+[gd_scene load_steps=5 format=3 uid="uid://co6878smtorhi"]
 
 [ext_resource type="Theme" uid="uid://dlfpsajfoyq0w" path="res://ui-theme.tres" id="1_7ps58"]
 [ext_resource type="Script" path="res://entities/ui/MainMenu.gd" id="2_agtwy"]
 [ext_resource type="PackedScene" uid="uid://1bvm7b7kkput" path="res://entities/ui/PanelNinefold.tscn" id="3_nv6jr"]
-[ext_resource type="Texture2D" uid="uid://ba3ap2c4li5x1" path="res://unencrypted/PixSocials.zip.gpg/Separate PNG/Dark/16x16px/Itch.io.png" id="4_0rfp7"]
-[ext_resource type="Texture2D" uid="uid://bjjguvlklpgog" path="res://unencrypted/PixSocials.zip.gpg/Separate PNG/Dark/16x16px/Mastodon.png" id="5_x4rcc"]
 [ext_resource type="Texture2D" uid="uid://cfg0mybf0nggw" path="res://assets/email.png" id="6_rmag2"]
 
 [node name="MainMenu" type="CenterContainer" node_paths=PackedStringArray("thirdparty_text_box")]
@@ -61,7 +59,6 @@ columns = 2
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("4_0rfp7")
 expand_mode = 2
 stretch_mode = 4
 
@@ -71,7 +68,6 @@ text = "https://ratsnakegames.itch.io/"
 
 [node name="TextureRect3" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("5_x4rcc")
 expand_mode = 4
 stretch_mode = 4
 

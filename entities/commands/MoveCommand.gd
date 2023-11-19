@@ -15,12 +15,14 @@ func can_do(level: Level, snek: Snek) -> bool:
 	assert((snek.coords[0] - to).length() == 1)
 	
 	if snek.paused:
+		print("Cannot move: paused")
 		return false
 		
 	var tile = level.get_tile_map().get_cell_tile_data(0, to)
 	if tile and tile.get_custom_data("walkable"):
 		var idx = snek.coords.find(to)
 		if idx >= 0 and idx != snek.coords.size() - 1:
+			print("Cannot move: Tile not walkable")
 			return false
 		else:
 			return not is_blocked_by_mob(level)
@@ -31,6 +33,7 @@ func is_blocked_by_mob(level: Level) -> bool:
 	for mob in level.get_mobs():
 		if mob.contains_point(to):
 			if not mob.snek_can_enter():
+				print("cannot move: blocked by mob %s" % mob.name) 
 				return true
 				
 	return false

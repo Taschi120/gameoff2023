@@ -60,7 +60,7 @@ func get_tiles(level: Level, snek: Snek, mob: Mob) -> Array[Vector2i]:
 				break
 			result.append(go_to_tile)
 		
-		if go_to_tile == next_point:
+		if not result.is_empty() and result[-1] == next_point:
 			current_mode = Mode.WAIT
 			wait_time_counter = 0
 		

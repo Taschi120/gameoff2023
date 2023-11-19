@@ -12,6 +12,10 @@ const LEVELS = [
 	{
 		"id": "Level03",
 		"display_name": "3"
+	},
+	{
+		"id": "Level04",
+		"display_name": "4"
 	}
 ]
 
