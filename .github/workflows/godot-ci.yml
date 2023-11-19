@@ -27,11 +27,11 @@ jobs:
       - name: Windows Build
         run: godot -v --headless --export-release "Windows Desktop" "./build/windows/$EXPORT_NAME.exe"
       - name: Make ZIP
-        run: rm -f win32.zip && zip -j win32.zip build/windows/*
+        run: rm -f ratsnek_win32.zip && zip -j ratsnek_win32.zip build/windows/*
       - name: Upload to itch.io
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-        run: butler push win32.zip ratsnakegames/ratsnek:win32
+        run: butler push ratsnek_win32.zip ratsnakegames/ratsnek:win32
 
   export-web:
     name: Web Export
@@ -56,8 +56,8 @@ jobs:
       - name: Make ZIP
         run: |
           ls build/web
-          rm -f web.zip && zip -j web.zip build/web/*
+          rm -f ratsnek_web.zip && zip -j ratsnek_web.zip build/web/*
       - name: Upload to itch.io
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-        run: butler push web.zip ratsnakegames/ratsnek:web
+        run: butler push ratsnek_web.zip ratsnakegames/ratsnek:web
