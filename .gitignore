@@ -3,5 +3,4 @@
 build
 out
 *.tmp
-3rdparty/limezu/
-
+unencrypted

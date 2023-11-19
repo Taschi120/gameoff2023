@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dlfpsajfoyq0w"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dlfpsajfoyq0w"]
 
 [ext_resource type="FontFile" uid="uid://doenevtgwmlfj" path="res://3rdparty/kenney/fonts/Kenney Pixel.ttf" id="1_ofbpe"]
 [ext_resource type="StyleBox" uid="uid://b0waqgms0y75f" path="res://button-style-normal.tres" id="2_513dk"]
@@ -13,6 +13,12 @@ texture_margin_left = 6.13318
 texture_margin_top = 5.73749
 texture_margin_right = 6.72672
 texture_margin_bottom = 7.5181
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lct5f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_chgxk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1bj7"]
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -55,3 +61,10 @@ MarginContainer/constants/margin_bottom = 12
 MarginContainer/constants/margin_left = 12
 MarginContainer/constants/margin_right = 12
 MarginContainer/constants/margin_top = 12
+TextEdit/colors/font_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_outline_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+TextEdit/colors/font_readonly_color = Color(0, 0, 0, 0.501961)
+TextEdit/styles/focus = SubResource("StyleBoxEmpty_lct5f")
+TextEdit/styles/normal = SubResource("StyleBoxEmpty_chgxk")
+TextEdit/styles/read_only = SubResource("StyleBoxEmpty_e1bj7")

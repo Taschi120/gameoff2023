@@ -85,5 +85,19 @@ offset_top = 108.0
 offset_right = 1012.0
 offset_bottom = 612.0
 
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer2/GridContainer"]
+layout_mode = 2
+
 [connection signal="pressed" from="MarginContainer/InfoButton" to="." method="_on_info_button_pressed"]
 [connection signal="closed" from="MainMenu" to="." method="_on_main_menu_closed"]
